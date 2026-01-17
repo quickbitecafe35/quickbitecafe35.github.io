@@ -23,11 +23,70 @@ body{
   text-align:center;
   line-height:1.7;
   overflow-x:hidden;
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+}
+
+/* ===== ADS STYLES ===== */
+.adsbygoogle {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 25px auto !important;
+    border: 1px solid rgba(244,196,48,0.15);
+    background: rgba(244,196,48,0.03);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ads-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ad-label {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Sidebar ads for desktop */
+@media (min-width: 1024px) {
+    .sidebar-ad {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        height: 600px;
+        z-index: 100;
+    }
+    
+    .sidebar-ad.left {
+        left: -170px;
+    }
+    
+    .sidebar-ad.right {
+        right: -170px;
+    }
+}
+
+/* Mobile ads optimization */
+@media (max-width: 600px) {
+    .adsbygoogle {
+        margin: 15px auto !important;
+        border-radius: 8px;
+    }
 }
 
 .brand-section{
-  padding:30px 0;
+  padding:30px 20px;
   background:radial-gradient(circle at center,#2a2a2a 0%,#111 100%);
+  margin:20px;
+  border-radius:15px;
 }
 .brand-logo{
   width:180px;
@@ -56,32 +115,40 @@ h1{
 .tagline{
   font-size:1.1em;
   line-height:1.8;
-  margin:10px 20px;
+  margin:10px auto;
   background:rgba(244,196,48,0.1);
   padding:15px;
   border-radius:12px;
   border:1px solid rgba(244,196,48,0.3);
+  max-width:800px;
 }
 
 .tagline a{
   color:#f4c430;
   text-decoration:none;
   font-weight:bold;
-  transition:color 0.3s;
+  transition:color 0.3s, background 0.3s;
+  padding:2px 8px;
+  border-radius:4px;
 }
-.tagline a:hover{color:#fff}
+.tagline a:hover{
+  color:#000;
+  background:#f4c430;
+}
 
 .card{
   background:linear-gradient(145deg,#1c1c1c,#2a2a2a);
-  margin:20px;
+  margin:25px 20px;
   padding:35px;
   border-radius:18px;
   box-shadow:0 8px 25px rgba(0,0,0,0.7);
   transition:transform 0.3s,box-shadow 0.3s;
+  border:1px solid rgba(255,255,255,0.05);
 }
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 12px 40px rgba(244,196,48,0.4);
+  border-color:rgba(244,196,48,0.3);
 }
 
 h2{
@@ -101,6 +168,7 @@ button{
   color:#000;
   transition:transform 0.2s,box-shadow 0.2s;
   box-shadow:0 4px 15px rgba(244,196,48,0.4);
+  margin:10px 5px;
 }
 button:hover{
   transform:scale(1.05);
@@ -128,6 +196,7 @@ button:hover{
   margin:20px 0;
   padding:10px;
   position:relative;
+  border:1px solid rgba(255,255,255,0.1);
 }
 
 img{
@@ -185,7 +254,7 @@ img{
 }
 
 .nav button{
-  min-width:100px;
+  min-width:120px;
 }
 
 #orderBtn{
@@ -207,6 +276,7 @@ img{
   max-width:500px;
   box-shadow:0 10px 40px rgba(0,0,0,0.8);
   animation:slideIn 0.5s;
+  border:1px solid rgba(244,196,48,0.2);
 }
 
 @keyframes slideIn{
@@ -228,6 +298,7 @@ input,textarea{
 input:focus,textarea:focus{
   outline:none;
   border-color:#f4c430;
+  box-shadow:0 0 10px rgba(244,196,48,0.3);
 }
 
 #loading{
@@ -266,6 +337,16 @@ input:focus,textarea:focus{
   text-decoration:none;
   font-size:1.3em;
   font-weight:bold;
+  display:inline-block;
+  margin:10px 0;
+  padding:10px 20px;
+  background:rgba(244,196,48,0.1);
+  border-radius:8px;
+  transition:background 0.3s;
+}
+
+.contact a:hover{
+  background:rgba(244,196,48,0.2);
 }
 
 .home-btn{
@@ -279,6 +360,7 @@ input:focus,textarea:focus{
   .card{padding:25px;margin:15px}
   button{padding:12px 25px;font-size:16px}
   .video-wrapper iframe{height:250px}
+  .adsbygoogle{min-height:50px}
 }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486"
@@ -287,9 +369,25 @@ input:focus,textarea:focus{
 
 <body>
 
+<!-- ===== SIDEBAR ADS (Desktop Only) ===== -->
+<div class="sidebar-ad left">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-1417987183063486"
+         data-ad-slot="2402391265"></ins>
+</div>
+
+<div class="sidebar-ad right">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-1417987183063486"
+         data-ad-slot="6813227809"></ins>
+</div>
+
 <!-- ===== TOP AD ===== -->
+<div class="ad-label">Advertisement</div>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center; margin:20px auto;"
+     style="display:block"
      data-ad-client="ca-pub-1417987183063486"
      data-ad-slot="2402391265"
      data-ad-format="auto"
@@ -313,9 +411,22 @@ input:focus,textarea:focus{
   </p>
 </header>
 
+<!-- ===== MIDDLE AD 1 ===== -->
+<div class="ad-label">Special Offer</div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1417987183063486"
+     data-ad-slot="3907028717"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <div id="loading">
   <div class="spinner"></div>
-  <p>Please wait...</p>
+  <p>Loading delicious items...</p>
 </div>
 
 <main id="home">
@@ -325,9 +436,10 @@ input:focus,textarea:focus{
     <button onclick="openSection('items')">View Items</button>
   </div>
 
-<!-- ===== MIDDLE AD ===== -->
+<!-- ===== MIDDLE AD 2 ===== -->
+<div class="ad-label">Today's Special</div>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center; margin:30px auto;"
+     style="display:block"
      data-ad-client="ca-pub-1417987183063486"
      data-ad-slot="6813227809"
      data-ad-format="auto"
@@ -342,6 +454,19 @@ input:focus,textarea:focus{
     <p>Save money with our special deals and packages</p>
     <button onclick="openSection('deals')">View Deals</button>
   </div>
+  
+  <!-- ===== MIDDLE AD 3 ===== -->
+<div class="ad-label">Recommended</div>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1417987183063486"
+     data-ad-slot="3907028717"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   
   <div class="card">
     <h2>🎥 Videos</h2>
@@ -359,6 +484,15 @@ input:focus,textarea:focus{
     <button onclick="prev()">◀️ Previous</button>
     <button onclick="next()">Next ▶️</button>
   </nav>
+  
+  <!-- ===== AD INSIDE SLIDER ===== -->
+  <div class="ad-label">You might like</div>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1417987183063486"
+       data-ad-slot="2402391265"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   
   <button id="orderBtn" onclick="order()">🛒 Order Now</button>
   
@@ -385,8 +519,9 @@ input:focus,textarea:focus{
 </footer>
 
 <!-- ===== BOTTOM AD ===== -->
+<div class="ad-label">Advertisement</div>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center; margin:25px auto;"
+     style="display:block"
      data-ad-client="ca-pub-1417987183063486"
      data-ad-slot="3907028717"
      data-ad-format="auto"
@@ -405,6 +540,14 @@ const folders={
 };
 
 let files=[],idx=0,currentSection="";
+
+// Initialize all ads
+document.addEventListener('DOMContentLoaded', function() {
+    const ads = document.querySelectorAll('.adsbygoogle');
+    ads.forEach(ad => {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+});
 
 function openSection(type){
   currentSection=type;
@@ -425,6 +568,11 @@ function openSection(type){
         document.getElementById("sliderTitle").innerText=type==='items'?'🍔 Menu Items':type==='deals'?'🎁 Deals & Packages':'🎥 Videos';
         idx=0;
         show();
+        
+        // Refresh ads when slider opens
+        setTimeout(() => {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }, 500);
       }else{
         alert("No files found!");
         goHome();
@@ -479,6 +627,7 @@ function show(){
     const highResUrl=file.thumbnailLink?file.thumbnailLink.replace("=s220","=s1000"):`https://drive.google.com/uc?export=view&id=${file.id}`;
     img.src=highResUrl;
     img.alt=file.name;
+    img.loading="lazy";
     container.appendChild(img);
     orderBtn.style.display="inline-block";
   }
@@ -545,6 +694,11 @@ document.addEventListener('keydown',function(e){
     if(e.key==="ArrowRight")next();
   }
 });
+
+// Auto refresh ads every 30 seconds
+setInterval(() => {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+}, 30000);
 </script>
 
 </body>

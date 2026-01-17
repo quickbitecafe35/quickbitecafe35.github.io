@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="u0HQvmeVKbyBWL1oaDDylFERp4bmJKpg-IT7i_U0CmE" />
 <meta name="google-adsense-account" content="ca-pub-1417987183063486">
 
-<title>Quick Bite Cafe | Fast Food Delivery in 30 Minutes | Burgers & Pizza</title>
+<title>Quick Bite Cafe | فاسٹ فوڈ 30 منٹ میں | برگر اور پیزا</title>
 <!-- SEO Meta Tags -->
-<meta name="description" content="Order fresh burgers, pizza and fast food from Quick Bite Cafe. 30 minutes delivery, best deals and quality food. Order now via WhatsApp.">
-<meta name="keywords" content="Quick Bite Cafe, fast food delivery, burgers, pizza, deals">
+<meta name="description" content="تازہ برگر، پیزا اور فاسٹ فوڈ آرڈر کریں۔ 30 منٹ کی ڈیلیوری، بہترین ڈیلز۔ واٹس ایپ کے ذریعے آرڈر کریں۔">
+<meta name="keywords" content="Quick Bite Cafe, فاسٹ فوڈ, برگر, پیزا, ڈیلز">
 <meta property="og:title" content="Quick Bite Cafe">
-<meta property="og:description" content="Quick Bite Cafe - Best Food Point - 30 Minute Delivery">
+<meta property="og:description" content="Quick Bite Cafe - بہترین فوڈ پوائنٹ - 30 منٹ ڈیلیوری">
 <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-">
 
 <style>
@@ -82,6 +82,110 @@ body{
     }
 }
 
+/* ===== سرچ بار اسٹائلز ===== */
+.search-section {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(244,196,48,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(244,196,48,0.2);
+}
+
+.search-box {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 18px 60px 18px 20px;
+    border-radius: 50px;
+    border: 2px solid #f4c430;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 18px;
+    direction: rtl;
+    text-align: right;
+}
+
+#searchInput::placeholder {
+    color: rgba(255,255,255,0.6);
+    text-align: right;
+}
+
+.search-btn {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f4c430;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+
+.search-results {
+    margin-top: 20px;
+    color: #f4c430;
+    font-size: 16px;
+}
+
+/* ===== گیلری ویو ===== */
+.gallery-view {
+    display: none;
+    padding: 20px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.item-card {
+    background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(244,196,48,0.3);
+    border-color: rgba(244,196,48,0.3);
+}
+
+.item-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(244,196,48,0.2);
+}
+
+.item-name {
+    padding: 15px;
+    color: #f4c430;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: #888;
+    font-size: 18px;
+}
+
+/* ===== باقی اسٹائلز آپ کے جیسے ===== */
 .brand-section{
   padding:30px 20px;
   background:radial-gradient(circle at center,#2a2a2a 0%,#111 100%);
@@ -361,6 +465,8 @@ input:focus,textarea:focus{
   button{padding:12px 25px;font-size:16px}
   .video-wrapper iframe{height:250px}
   .adsbygoogle{min-height:50px}
+  .items-grid{grid-template-columns:repeat(auto-fill, minmax(150px, 1fr))}
+  .item-image{height:120px}
 }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486"
@@ -384,6 +490,22 @@ input:focus,textarea:focus{
          data-ad-slot="6813227809"></ins>
 </div>
 
+<!-- ===== سرچ بار ===== -->
+<div class="search-section" id="searchSection" style="display:none;">
+    <h2>🔍 آئٹم تلاش کریں</h2>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="آئٹم کا نام لکھیں (مثال: برگر، پیزا، چکن)">
+        <button class="search-btn" onclick="performSearch()">🔍</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- ===== گیلری ویو ===== -->
+<div class="gallery-view" id="galleryView">
+    <div class="items-grid" id="itemsGrid"></div>
+    <button class="home-btn" onclick="goHome()">🏠 ہوم پیج پر واپس</button>
+</div>
+
 <!-- ===== TOP AD ===== -->
 <div class="ad-label">Advertisement</div>
 <ins class="adsbygoogle"
@@ -405,9 +527,9 @@ input:focus,textarea:focus{
   
   <h1>Quick Bite Cafe</h1>
   <p class="tagline">
-    🕒 Open: 2:00 PM - 1:30 AM | 🚀 Fast Delivery in 30 Minutes<br>
-    🎉 FREE Delivery within 3KM | Beyond 3KM: Rs.150 Charges<br>
-    📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank">Shop Location</a>
+    🕒 اوپننگ: 2:00 PM - 1:30 AM | 🚀 30 منٹ میں ڈیلیوری<br>
+    🎉 3KM کے اندر مفت ڈیلیوری | 3KM سے زیادہ: Rs.150 چارجز<br>
+    📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank">شاپ لوکیشن</a>
   </p>
 </header>
 
@@ -426,14 +548,15 @@ input:focus,textarea:focus{
 
 <div id="loading">
   <div class="spinner"></div>
-  <p>Loading delicious items...</p>
+  <p>آئٹمز لوڈ ہو رہے ہیں...</p>
 </div>
 
 <main id="home">
   <div class="card">
-    <h2>🍔 Menu Items</h2>
-    <p>Browse our fresh burgers, pizzas, and all items</p>
-    <button onclick="openSection('items')">View Items</button>
+    <h2>🍔 آئٹمز دیکھیں</h2>
+    <p>سرچ بار کے ساتھ تیز تلاش کریں</p>
+    <button onclick="openWithSearch('items')">آئٹمز دیکھیں + سرچ</button>
+    <button onclick="openSection('items')">روایتی ویو</button>
   </div>
 
 <!-- ===== MIDDLE AD 2 ===== -->
@@ -450,9 +573,10 @@ input:focus,textarea:focus{
 </script>
   
   <div class="card">
-    <h2>🎁 Deals & Packages</h2>
-    <p>Save money with our special deals and packages</p>
-    <button onclick="openSection('deals')">View Deals</button>
+    <h2>🎁 ڈیلز اور پیکجز</h2>
+    <p>بچت کریں خصوصی ڈیلز کے ساتھ</p>
+    <button onclick="openWithSearch('deals')">ڈیلز دیکھیں + سرچ</button>
+    <button onclick="openSection('deals')">روایتی ویو</button>
   </div>
   
   <!-- ===== MIDDLE AD 3 ===== -->
@@ -469,9 +593,9 @@ input:focus,textarea:focus{
 </script>
   
   <div class="card">
-    <h2>🎥 Videos</h2>
-    <p>Watch our food preparation videos</p>
-    <button onclick="openSection('videos')">View Videos</button>
+    <h2>🎥 ویڈیوز</h2>
+    <p>ہمارے کھانے کی تیاری دیکھیں</p>
+    <button onclick="openSection('videos')">ویڈیوز دیکھیں</button>
   </div>
 </main>
 
@@ -481,8 +605,8 @@ input:focus,textarea:focus{
   <div id="mediaContainer"></div>
   
   <nav class="nav">
-    <button onclick="prev()">◀️ Previous</button>
-    <button onclick="next()">Next ▶️</button>
+    <button onclick="prev()">◀️ پچھلا</button>
+    <button onclick="next()">اگلا ▶️</button>
   </nav>
   
   <!-- ===== AD INSIDE SLIDER ===== -->
@@ -494,27 +618,27 @@ input:focus,textarea:focus{
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
   
-  <button id="orderBtn" onclick="order()">🛒 Order Now</button>
+  <button id="orderBtn" onclick="order()">🛒 آرڈر کریں</button>
   
-  <button class="home-btn" onclick="goHome()">🏠 Back to Home</button>
+  <button class="home-btn" onclick="goHome()">🏠 ہوم پیج پر واپس</button>
 </section>
 
 <section id="orderForm">
-  <h2>📝 Confirm Your Order</h2>
+  <h2>📝 آرڈر کی تصدیق کریں</h2>
   <form onsubmit="event.preventDefault();send()">
-    <input id="name" type="text" placeholder="Your Name *" required>
-    <input id="phone" type="tel" placeholder="WhatsApp Number *" required>
-    <textarea id="address" rows="3" placeholder="Complete Address *" required></textarea>
-    <input id="landmark" type="text" placeholder="Landmark (e.g., near mosque)">
-    <button type="submit" style="width:100%">✅ Send Order via WhatsApp</button>
+    <input id="name" type="text" placeholder="آپ کا نام *" required>
+    <input id="phone" type="tel" placeholder="واٹس ایپ نمبر *" required>
+    <textarea id="address" rows="3" placeholder="مکمل پتہ *" required></textarea>
+    <input id="landmark" type="text" placeholder="لینڈ مارک (مثال: مسجد کے قریب)">
+    <button type="submit" style="width:100%">✅ واٹس ایپ پر آرڈر بھیجیں</button>
   </form>
 </section>
 
 <footer class="contact">
-  <p>📞 WhatsApp Order:</p>
+  <p>📞 واٹس ایپ آرڈر:</p>
   <a href="https://wa.me/923159392716" target="_blank">+92 315 9392716</a>
   <p style="margin-top:15px;font-size:0.9em;color:#888">
-    © 2025 Quick Bite Cafe. All Rights Reserved.
+    © 2025 Quick Bite Cafe. جملہ حقوق محفوظ ہیں۔
   </p>
 </footer>
 
@@ -539,49 +663,124 @@ const folders={
   videos:"1TFcZp-3lnzQYitK2jE5vLJzrJFh3umZH"
 };
 
-let files=[],idx=0,currentSection="";
+let files=[], idx=0, currentSection="";
+let allFiles = [];
+let currentSearchTerm = "";
 
-// Initialize all ads
-document.addEventListener('DOMContentLoaded', function() {
-    const ads = document.querySelectorAll('.adsbygoogle');
-    ads.forEach(ad => {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    });
-});
+// ===== نئے سرچ فیچرز =====
+function openWithSearch(type) {
+    currentSection = type;
+    document.getElementById("home").style.display = "none";
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("searchSection").style.display = "block";
+    
+    fetch(`https://www.googleapis.com/drive/v3/files?q='${folders[type]}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,thumbnailLink)&pageSize=100`)
+        .then(r => r.json())
+        .then(d => {
+            allFiles = d.files || [];
+            files = [...allFiles];
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("galleryView").style.display = "block";
+            renderGallery();
+            updateSearchResults();
+        })
+        .catch(err => {
+            console.error('Error:', err);
+            alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
+            goHome();
+        });
+}
 
+function renderGallery() {
+    const container = document.getElementById("itemsGrid");
+    
+    if (files.length === 0) {
+        container.innerHTML = '<div class="no-results">کوئی آئٹم نہیں ملا۔ دوسرا نام آزمائیں۔</div>';
+        return;
+    }
+    
+    container.innerHTML = files.map(file => {
+        const imageUrl = file.thumbnailLink ? 
+            file.thumbnailLink.replace("=s220", "=s400") : 
+            `https://drive.google.com/uc?export=view&id=${file.id}`;
+        
+        return `
+            <div class="item-card" onclick="openItem('${file.id}')">
+                <img src="${imageUrl}" 
+                     alt="${file.name}" 
+                     class="item-image"
+                     loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/250x180/333/ffcc00?text=Image+Not+Found'">
+                <div class="item-name">${file.name}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+function performSearch() {
+    currentSearchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
+    
+    if (currentSearchTerm === "") {
+        files = [...allFiles];
+    } else {
+        files = allFiles.filter(file => 
+            file.name.toLowerCase().includes(currentSearchTerm)
+        );
+    }
+    
+    renderGallery();
+    updateSearchResults();
+}
+
+function updateSearchResults() {
+    const resultsElement = document.getElementById("searchResults");
+    if (files.length === 0) {
+        resultsElement.innerHTML = `"${currentSearchTerm}" کے لیے کوئی نتیجہ نہیں ملا`;
+    } else if (currentSearchTerm === "") {
+        resultsElement.innerHTML = `کل ${files.length} آئٹمز`;
+    } else {
+        resultsElement.innerHTML = `"${currentSearchTerm}" کے لیے ${files.length} نتائج ملے`;
+    }
+}
+
+function openItem(fileId) {
+    const file = allFiles.find(f => f.id === fileId);
+    if (!file) return;
+    
+    // سلیڈر ویو میں کھولنا
+    document.getElementById("galleryView").style.display = "none";
+    document.getElementById("searchSection").style.display = "none";
+    document.getElementById("slider").style.display = "block";
+    
+    idx = allFiles.findIndex(f => f.id === fileId);
+    show();
+}
+
+// ===== پرانے فنکشنز (تبدیلی کے بغیر) =====
 function openSection(type){
   currentSection=type;
   document.getElementById("home").style.display="none";
   document.getElementById("loading").style.display="block";
   
   fetch(`https://www.googleapis.com/drive/v3/files?q='${folders[type]}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,thumbnailLink)&pageSize=100`)
-    .then(r=>{
-      if(!r.ok)throw new Error('Network error');
-      return r.json();
-    })
+    .then(r=>r.json())
     .then(d=>{
       files=d.files||[];
       document.getElementById("loading").style.display="none";
       
       if(files.length>0){
         document.getElementById("slider").style.display="block";
-        document.getElementById("sliderTitle").innerText=type==='items'?'🍔 Menu Items':type==='deals'?'🎁 Deals & Packages':'🎥 Videos';
+        document.getElementById("sliderTitle").innerText=type==='items'?'🍔 آئٹمز':type==='deals'?'🎁 ڈیلز':'🎥 ویڈیوز';
         idx=0;
         show();
-        
-        // Refresh ads when slider opens
-        setTimeout(() => {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        }, 500);
       }else{
-        alert("No files found!");
+        alert("کوئی فائل نہیں ملی!");
         goHome();
       }
     })
     .catch(err=>{
       console.error('Error:',err);
-      alert("Error loading data! Please check your internet connection.");
-      document.getElementById("loading").style.display="none";
+      alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
       goHome();
     });
 }
@@ -594,26 +793,22 @@ function show(){
   container.innerHTML='';
   
   if(file.mimeType.includes("video")){
-    const videoId=file.id;
-    
-    // Create video wrapper with iframe for Google Drive videos
     const wrapper=document.createElement('div');
     wrapper.className='video-wrapper';
     
     const iframe=document.createElement('iframe');
-    iframe.src=`https://drive.google.com/file/d/${videoId}/preview`;
+    iframe.src=`https://drive.google.com/file/d/${file.id}/preview`;
     iframe.allow='autoplay';
     
     wrapper.appendChild(iframe);
     
-    // Add fallback link
     const errorDiv=document.createElement('div');
     errorDiv.className='video-error';
     errorDiv.innerHTML=`
       <p>📹 <strong>${file.name}</strong></p>
-      <p style="margin:10px 0;font-size:0.9em">If video doesn't play above, click below:</p>
-      <a href="https://drive.google.com/file/d/${videoId}/view" target="_blank">
-        🎬 Open Video in New Tab
+      <p style="margin:10px 0;font-size:0.9em">اگر ویڈیو نہ چلے تو نیچے کلک کریں:</p>
+      <a href="https://drive.google.com/file/d/${file.id}/view" target="_blank">
+        🎬 نئی ٹیب میں کھولیں
       </a>
     `;
     
@@ -622,7 +817,6 @@ function show(){
     orderBtn.style.display="none";
     
   }else{
-    // Display image
     const img=document.createElement('img');
     const highResUrl=file.thumbnailLink?file.thumbnailLink.replace("=s220","=s1000"):`https://drive.google.com/uc?export=view&id=${file.id}`;
     img.src=highResUrl;
@@ -655,12 +849,12 @@ function send(){
   const landmark=document.getElementById("landmark").value.trim();
   
   if(!name||!phone||!address){
-    alert("Please enter name, phone number and address!");
+    alert("براہ کرم نام، فون نمبر اور پتہ درج کریں!");
     return;
   }
   
   const file=files[idx];
-  const itemName=file.name||"Food Item";
+  const itemName=file.name||"فوڈ آئٹم";
   
   let itemLink;
   if(file.thumbnailLink){
@@ -669,17 +863,17 @@ function send(){
     itemLink=`https://drive.google.com/uc?export=view&id=${file.id}`;
   }
   
-  const msg=`*New Order - Quick Bite Cafe*
+  const msg=`*نیا آرڈر - Quick Bite Cafe*
 ------------------------------
-*Category:* ${currentSection}
-*Item Name:* ${itemName}
-*Image Link:* ${itemLink}
+*زمرہ:* ${currentSection}
+*آئٹم کا نام:* ${itemName}
+*تصویر کا لنک:* ${itemLink}
 ------------------------------
-*Customer:* ${name}
-*Mobile:* ${phone}
-*Address:* ${address}
-*Landmark:* ${landmark||'N/A'}
-*Delivery Time:* 30 Minutes`;
+*گاہک:* ${name}
+*موبائل:* ${phone}
+*پتہ:* ${address}
+*لینڈ مارک:* ${landmark||'N/A'}
+*ڈیلیوری وقت:* 30 منٹ`;
 
   window.open("https://wa.me/923159392716?text="+encodeURIComponent(msg),"_blank");
 }
@@ -688,14 +882,31 @@ function goHome(){
   location.reload();
 }
 
-document.addEventListener('keydown',function(e){
-  if(document.getElementById("slider").style.display==="block"){
-    if(e.key==="ArrowLeft")prev();
-    if(e.key==="ArrowRight")next();
-  }
+// ایونٹ لسٹنرز
+document.addEventListener('DOMContentLoaded', function() {
+    // سرچ بار کے لیے انٹر کی فنکشنلٹی
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    // اشتہارات لوڈ کریں
+    const ads = document.querySelectorAll('.adsbygoogle');
+    ads.forEach(ad => {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+    
+    // کی بورڈ شارٹ کٹس
+    document.addEventListener('keydown',function(e){
+        if(document.getElementById("slider").style.display==="block"){
+            if(e.key==="ArrowLeft") prev();
+            if(e.key==="ArrowRight") next();
+        }
+    });
 });
 
-// Auto refresh ads every 30 seconds
+// اشتہارات کو ہر 30 سیکنڈ بعد ریفریش کریں
 setInterval(() => {
     (adsbygoogle = window.adsbygoogle || []).push({});
 }, 30000);

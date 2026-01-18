@@ -1,916 +1,995 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="u0HQvmeVKbyBWL1oaDDylFERp4bmJKpg-IT7i_U0CmE" />
-<meta name="google-adsense-account" content="ca-pub-1417987183063486">
-
-<title>Quick Bite Cafe | فاسٹ فوڈ 30 منٹ میں | برگر اور پیزا</title>
-<!-- SEO Meta Tags -->
-<meta name="description" content="تازہ برگر، پیزا اور فاسٹ فوڈ آرڈر کریں۔ 30 منٹ کی ڈیلیوری، بہترین ڈیلز۔ واٹس ایپ کے ذریعے آرڈر کریں۔">
-<meta name="keywords" content="Quick Bite Cafe, فاسٹ فوڈ, برگر, پیزا, ڈیلز">
-<meta property="og:title" content="Quick Bite Cafe">
-<meta property="og:description" content="Quick Bite Cafe - بہترین فوڈ پوائنٹ - 30 منٹ ڈیلیوری">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-  background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);
-  color:#fff;
-  text-align:center;
-  line-height:1.7;
-  overflow-x:hidden;
-  max-width:1200px;
-  margin:0 auto;
-  position:relative;
-}
-
-/* ===== ADS STYLES ===== */
-.adsbygoogle {
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 25px auto !important;
-    border: 1px solid rgba(244,196,48,0.15);
-    background: rgba(244,196,48,0.03);
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ads-container {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.ad-label {
-    font-size: 0.8em;
-    color: #888;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Sidebar ads for desktop */
-@media (min-width: 1024px) {
-    .sidebar-ad {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 160px;
-        height: 600px;
-        z-index: 100;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="u0HQvmeVKbyBWL1oaDDylFERp4bmJKpg-IT7i_U0CmE" />
+    <meta name="google-adsense-account" content="ca-pub-1417987183063486">
+    <title>Quick Bite Cafe | تازہ فاسٹ فوڈ | 30 منٹ ڈیلیوری</title>
+    <meta name="description" content="تازہ برگر، پیزا، چکن اور فاسٹ فوڈ 30 منٹ میں ڈیلیوری۔ بہترین معیار، بہترین قیمت۔">
+    <meta name="keywords" content="Quick Bite Cafe, فاسٹ فوڈ, برگر, پیزا, ڈیلیوری, کراچی">
+    <meta property="og:title" content="Quick Bite Cafe">
+    <meta property="og:description" content="بہترین فاسٹ فوڈ - 30 منٹ ڈیلیوری گارنٹی">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-">
     
-    .sidebar-ad.left {
-        left: -170px;
-    }
+    <!-- نیا جدید سٹائل -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B35;
+            --secondary: #FFA500;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --success: #28A745;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --radius: 15px;
+        }
+        
+        body {
+            font-family: 'Tahoma', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ===== ہیڈر سٹائل ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            margin: 15px 0;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        /* ===== مین نیویگیشن ===== */
+        .main-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .nav-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(255,107,53,0.2);
+        }
+        
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .nav-card h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== بٹن سٹائلز ===== */
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,107,53,0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #20c997);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        /* ===== سرچ سیکشن ===== */
+        .search-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        #searchInput {
+            width: 100%;
+            padding: 18px 60px 18px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--primary);
+            background: #f8f9fa;
+            color: #333;
+            font-size: 1.1rem;
+            direction: rtl;
+            text-align: right;
+            transition: all 0.3s ease;
+        }
+        
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.2);
+            background: white;
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* ===== گیلری سٹائل ===== */
+        .gallery-view {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        
+        .item-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .item-info {
+            padding: 20px;
+        }
+        
+        .item-name {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* ===== سلیڈر سٹائل ===== */
+        .slider-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .media-container {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ddd;
+        }
+        
+        /* ===== آرڈر فارم ===== */
+        .order-form-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            background: #f8f9fa;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+        }
+        
+        /* ===== اشتہارات سٹائل ===== */
+        .ad-container {
+            margin: 30px auto;
+            text-align: center;
+        }
+        
+        .ad-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .adsbygoogle {
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 20px auto !important;
+            border: 2px solid #f0f0f0;
+        }
+        
+        /* ===== فوٹر ===== */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #2d3436);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* ===== لوڈنگ ===== */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            color: var(--primary);
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* ===== رسپانسیو ===== */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .logo { width: 100px; height: 100px; }
+            .nav-card { padding: 20px; }
+            .items-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .order-form-section { padding: 25px; }
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 0 10px; }
+            .nav-card { padding: 15px; }
+            .items-grid { grid-template-columns: 1fr; }
+            .slider-nav { flex-direction: column; }
+        }
+        
+        /* ===== یوٹیلیٹی کلاسیں ===== */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .mt-30 { margin-top: 30px; }
+        .d-none { display: none; }
+        .d-block { display: block; }
+        .w-100 { width: 100%; }
+        .hidden { opacity: 0; visibility: hidden; }
+        .visible { opacity: 1; visibility: visible; }
+    </style>
     
-    .sidebar-ad.right {
-        right: -170px;
-    }
-}
-
-/* Mobile ads optimization */
-@media (max-width: 600px) {
-    .adsbygoogle {
-        margin: 15px auto !important;
-        border-radius: 8px;
-    }
-}
-
-/* ===== سرچ بار اسٹائلز ===== */
-.search-section {
-    margin: 20px;
-    padding: 20px;
-    background: rgba(244,196,48,0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(244,196,48,0.2);
-}
-
-.search-box {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 18px 60px 18px 20px;
-    border-radius: 50px;
-    border: 2px solid #f4c430;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 18px;
-    direction: rtl;
-    text-align: right;
-}
-
-#searchInput::placeholder {
-    color: rgba(255,255,255,0.6);
-    text-align: right;
-}
-
-.search-btn {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #f4c430;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #000;
-}
-
-.search-results {
-    margin-top: 20px;
-    color: #f4c430;
-    font-size: 16px;
-}
-
-/* ===== گیلری ویو ===== */
-.gallery-view {
-    display: none;
-    padding: 20px;
-}
-
-.items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.item-card {
-    background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-.item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(244,196,48,0.3);
-    border-color: rgba(244,196,48,0.3);
-}
-
-.item-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 2px solid rgba(244,196,48,0.2);
-}
-
-.item-name {
-    padding: 15px;
-    color: #f4c430;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: right;
-}
-
-.no-results {
-    grid-column: 1 / -1;
-    padding: 40px;
-    color: #888;
-    font-size: 18px;
-}
-
-/* ===== باقی اسٹائلز ===== */
-.brand-section{
-  padding:30px 20px;
-  background:radial-gradient(circle at center,#2a2a2a 0%,#111 100%);
-  margin:20px;
-  border-radius:15px;
-}
-.brand-logo{
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid #f4c430;
-  box-shadow:0 0 30px rgba(244,196,48,0.6),0 0 60px rgba(244,196,48,0.3);
-  animation:pulse 2s infinite;
-  display:block;
-  margin:0 auto;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1);box-shadow:0 0 30px rgba(244,196,48,0.6)}
-  50%{transform:scale(1.05);box-shadow:0 0 50px rgba(244,196,48,0.8)}
-}
-
-h1{
-  color:#f4c430;
-  font-size:2.5em;
-  margin:20px 0 10px;
-  text-shadow:2px 2px 8px rgba(244,196,48,0.5);
-}
-
-.tagline{
-  font-size:1.1em;
-  line-height:1.8;
-  margin:10px auto;
-  background:rgba(244,196,48,0.1);
-  padding:15px;
-  border-radius:12px;
-  border:1px solid rgba(244,196,48,0.3);
-  max-width:800px;
-}
-
-.tagline a{
-  color:#f4c430;
-  text-decoration:none;
-  font-weight:bold;
-  transition:color 0.3s, background 0.3s;
-  padding:2px 8px;
-  border-radius:4px;
-}
-.tagline a:hover{
-  color:#000;
-  background:#f4c430;
-}
-
-.card{
-  background:linear-gradient(145deg,#1c1c1c,#2a2a2a);
-  margin:25px 20px;
-  padding:35px;
-  border-radius:18px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.7);
-  transition:transform 0.3s,box-shadow 0.3s;
-  border:1px solid rgba(255,255,255,0.05);
-}
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 12px 40px rgba(244,196,48,0.4);
-  border-color:rgba(244,196,48,0.3);
-}
-
-h2{
-  color:#f4c430;
-  margin-bottom:15px;
-  font-size:1.8em;
-}
-
-button{
-  background:linear-gradient(135deg,#f4c430,#e0b020);
-  border:none;
-  padding:14px 30px;
-  font-weight:bold;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:17px;
-  color:#000;
-  transition:transform 0.2s,box-shadow 0.2s;
-  box-shadow:0 4px 15px rgba(244,196,48,0.4);
-  margin:10px 5px;
-}
-button:hover{
-  transform:scale(1.05);
-  box-shadow:0 6px 20px rgba(244,196,48,0.6);
-}
-
-.slider{
-  display:none;
-  padding:20px;
-  animation:fadeIn 0.5s;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-#mediaContainer{
-  min-height:300px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#0a0a0a;
-  border-radius:15px;
-  margin:20px 0;
-  padding:10px;
-  position:relative;
-  border:1px solid rgba(255,255,255,0.1);
-}
-
-img{
-  max-width:100%;
-  max-height:70vh;
-  border-radius:12px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.8);
-}
-
-.video-wrapper{
-  width:100%;
-  max-width:800px;
-  margin:0 auto;
-}
-
-.video-wrapper iframe{
-  width:100%;
-  height:450px;
-  border-radius:12px;
-  border:none;
-  box-shadow:0 8px 30px rgba(0,0,0,0.8);
-}
-
-.video-error{
-  background:rgba(244,196,48,0.1);
-  border:2px solid rgba(244,196,48,0.3);
-  border-radius:12px;
-  padding:20px;
-  margin:20px;
-}
-
-.video-error a{
-  color:#f4c430;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:1.1em;
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 20px;
-  background:rgba(244,196,48,0.2);
-  border-radius:8px;
-  transition:background 0.3s;
-}
-
-.video-error a:hover{
-  background:rgba(244,196,48,0.3);
-}
-
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:20px 0;
-  flex-wrap:wrap;
-}
-
-.nav button{
-  min-width:120px;
-}
-
-#orderBtn{
-  background:linear-gradient(135deg,#25d366,#1da851);
-  color:#fff;
-  font-size:18px;
-  padding:16px 40px;
-  margin:10px 0;
-  width:90%;
-  max-width:400px;
-}
-
-#orderForm{
-  display:none;
-  background:linear-gradient(145deg,#1c1c1c,#2a2a2a);
-  padding:25px;
-  border-radius:18px;
-  margin:25px auto;
-  max-width:500px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.8);
-  animation:slideIn 0.5s;
-  border:1px solid rgba(244,196,48,0.2);
-}
-
-@keyframes slideIn{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-input,textarea{
-  width:100%;
-  padding:14px;
-  margin:10px 0;
-  border-radius:10px;
-  border:2px solid #333;
-  background:#0a0a0a;
-  color:#fff;
-  font-size:16px;
-  transition:border-color 0.3s;
-}
-input:focus,textarea:focus{
-  outline:none;
-  border-color:#f4c430;
-  box-shadow:0 0 10px rgba(244,196,48,0.3);
-}
-
-#loading{
-  display:none;
-  color:#f4c430;
-  font-size:20px;
-  margin:30px;
-  font-weight:bold;
-}
-
-.spinner{
-  border:4px solid rgba(244,196,48,0.2);
-  border-top:4px solid #f4c430;
-  border-radius:50%;
-  width:50px;
-  height:50px;
-  animation:spin 1s linear infinite;
-  margin:20px auto;
-}
-
-@keyframes spin{
-  0%{transform:rotate(0deg)}
-  100%{transform:rotate(360deg)}
-}
-
-.contact{
-  margin:40px 20px;
-  padding:25px;
-  background:rgba(244,196,48,0.1);
-  border-radius:15px;
-  border:2px solid rgba(244,196,48,0.3);
-}
-
-.contact a{
-  color:#f4c430;
-  text-decoration:none;
-  font-size:1.3em;
-  font-weight:bold;
-  display:inline-block;
-  margin:10px 0;
-  padding:10px 20px;
-  background:rgba(244,196,48,0.1);
-  border-radius:8px;
-  transition:background 0.3s;
-}
-
-.contact a:hover{
-  background:rgba(244,196,48,0.2);
-}
-
-.home-btn{
-  background:linear-gradient(135deg,#555,#777);
-  margin-top:15px;
-}
-
-@media(max-width:600px){
-  h1{font-size:2em}
-  .brand-logo{width:150px;height:150px}
-  .card{padding:25px;margin:15px}
-  button{padding:12px 25px;font-size:16px}
-  .video-wrapper iframe{height:250px}
-  .adsbygoogle{min-height:50px}
-  .items-grid{grid-template-columns:repeat(auto-fill, minmax(150px, 1fr))}
-  .item-image{height:120px}
-}
-</style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486"
-     crossorigin="anonymous"></script>
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="container">
+        <!-- ===== ہیڈر ===== -->
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://lh3.googleusercontent.com/d/1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-" 
+                         alt="Quick Bite Cafe Logo" 
+                         class="logo">
+                </div>
+                <h1>Quick Bite Cafe</h1>
+                <p class="tagline">
+                    🕒 اوپننگ: 2:00 PM - 1:30 AM | 🚀 30 منٹ میں ڈیلیوری<br>
+                    🎉 3KM کے اندر مفت ڈیلیوری | 3KM سے زیادہ: Rs.150 چارجز<br>
+                    📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank" class="btn btn-secondary" style="padding: 8px 15px; margin-top: 10px;">
+                        🗺️ شاپ لوکیشن
+                    </a>
+                </p>
+            </div>
+        </header>
 
-<!-- ===== SIDEBAR ADS (Desktop Only) ===== -->
-<div class="sidebar-ad left">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:160px;height:600px"
-         data-ad-client="ca-pub-1417987183063486"
-         data-ad-slot="2402391265"></ins>
-</div>
+        <!-- ===== ٹاپ اشتہار ===== -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="2402391265"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
 
-<div class="sidebar-ad right">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:160px;height:600px"
-         data-ad-client="ca-pub-1417987183063486"
-         data-ad-slot="6813227809"></ins>
-</div>
+        <!-- ===== مین سیکشن ===== -->
+        <main id="home">
+            <div class="main-nav">
+                <div class="nav-card">
+                    <div class="nav-icon">🍔</div>
+                    <h2>آئٹمز دیکھیں</h2>
+                    <p>تازہ برگر، پیزا اور فاسٹ فوڈ آئٹمز</p>
+                    <div class="btn-group">
+                        <button onclick="openWithSearch('items')" class="btn">
+                            🔍 سرچ کے ساتھ دیکھیں
+                        </button>
+                        <button onclick="openSection('items')" class="btn btn-secondary">
+                            📱 روایتی ویو
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="nav-card">
+                    <div class="nav-icon">🎁</div>
+                    <h2>ڈیلز اور پیکجز</h2>
+                    <p>خصوصی ڈیلز سے بچت کریں</p>
+                    <div class="btn-group">
+                        <button onclick="openWithSearch('deals')" class="btn">
+                            🔍 سرچ کے ساتھ دیکھیں
+                        </button>
+                        <button onclick="openSection('deals')" class="btn btn-secondary">
+                            📱 روایتی ویو
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="nav-card">
+                    <div class="nav-icon">🎥</div>
+                    <h2>ویڈیوز</h2>
+                    <p>کھانے کی تیاری دیکھیں</p>
+                    <button onclick="openSection('videos')" class="btn w-100">
+                        🎬 ویڈیوز دیکھیں
+                    </button>
+                </div>
+            </div>
 
-<!-- ===== سرچ بار ===== -->
-<div class="search-section" id="searchSection" style="display:none;">
-    <h2>🔍 آئٹم تلاش کریں</h2>
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="آئٹم کا نام لکھیں (مثال: برگر، پیزا، چکن)">
-        <button class="search-btn" onclick="performSearch()">🔍</button>
+            <!-- ===== مڈل اشتہار ===== -->
+            <div class="ad-container">
+                <div class="ad-label">Today's Special</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1417987183063486"
+                     data-ad-slot="3907028717"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </main>
+
+        <!-- ===== سرچ سیکشن ===== -->
+        <section id="searchSection" class="search-section d-none">
+            <h2 class="text-center mb-20">🔍 آئٹم تلاش کریں</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" 
+                       placeholder="برگر، پیزا، چکن وغیرہ تلاش کریں...">
+                <button class="search-btn" onclick="performSearch()">
+                    🔍
+                </button>
+            </div>
+            <div id="searchResults" class="text-center mt-30"></div>
+        </section>
+
+        <!-- ===== گیلری سیکشن ===== -->
+        <section id="galleryView" class="gallery-view d-none">
+            <h2 class="text-center mb-30" id="galleryTitle"></h2>
+            <div class="items-grid" id="itemsGrid"></div>
+            <div class="text-center mt-30">
+                <button onclick="goHome()" class="btn btn-secondary">
+                    🏠 ہوم پیج پر واپس
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== سلیڈر سیکشن ===== -->
+        <section id="sliderSection" class="slider-section d-none">
+            <h2 class="text-center mb-20" id="sliderTitle"></h2>
+            
+            <div class="media-container" id="mediaContainer">
+                <!-- میڈیا یہاں لوڈ ہوگا -->
+            </div>
+            
+            <div class="slider-nav">
+                <button onclick="prev()" class="btn">
+                    ◀️ پچھلا
+                </button>
+                <button onclick="next()" class="btn">
+                    اگلا ▶️
+                </button>
+            </div>
+            
+            <!-- سلیڈر میں اشتہار -->
+            <div class="ad-container">
+                <div class="ad-label">Recommended</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1417987183063486"
+                     data-ad-slot="6813227809"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button id="orderBtn" onclick="order()" class="btn btn-success">
+                    🛒 ابھی آرڈر کریں
+                </button>
+                <button onclick="goHome()" class="btn btn-secondary">
+                    🏠 ہوم پیج پر واپس
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== لوڈنگ ===== -->
+        <div id="loading" class="loading d-none">
+            <div class="spinner"></div>
+            <p>آئٹمز لوڈ ہو رہے ہیں...</p>
+        </div>
+
+        <!-- ===== آرڈر فارم ===== -->
+        <section id="orderForm" class="order-form-section d-none">
+            <h2 class="text-center mb-30">📝 آرڈر کی تصدیق</h2>
+            <form id="orderFormElement">
+                <div class="form-group">
+                    <label class="form-label">آپ کا نام *</label>
+                    <input type="text" id="name" class="form-input" 
+                           placeholder="اپنا نام لکھیں" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">واٹس ایپ نمبر *</label>
+                    <input type="tel" id="phone" class="form-input" 
+                           placeholder="03XX-XXXXXXX" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">مکمل پتہ *</label>
+                    <textarea id="address" class="form-input" 
+                              rows="3" placeholder="مکمل پتہ لکھیں" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">لینڈ مارک (اختیاری)</label>
+                    <input type="text" id="landmark" class="form-input" 
+                           placeholder="مثال: مسجد کے قریب، شاپنگ مال کے سامنے">
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-whatsapp w-100">
+                        ✅ واٹس ایپ پر آرڈر بھیجیں
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ===== نیچے اشتہار ===== -->
+        <div class="ad-container">
+            <div class="ad-label">Special Offer</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="2402391265"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- ===== فوٹر ===== -->
+        <footer>
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3 class="mb-20">📞 واٹس ایپ آرڈر</h3>
+                    <a href="https://wa.me/923159392716" target="_blank" 
+                       class="btn btn-whatsapp">
+                        📱 +92 315 9392716
+                    </a>
+                </div>
+                
+                <div>
+                    <p>🎯 30 منٹ ڈیلیوری گارنٹی</p>
+                    <p>⭐ بہترین معیار، بہترین قیمت</p>
+                </div>
+                
+                <div>
+                    <p style="color: #ccc; font-size: 0.9rem;">
+                        © 2025 Quick Bite Cafe. جملہ حقوق محفوظ ہیں۔
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
-    <div class="search-results" id="searchResults"></div>
-</div>
 
-<!-- ===== گیلری ویو ===== -->
-<div class="gallery-view" id="galleryView">
-    <div class="items-grid" id="itemsGrid"></div>
-    <button class="home-btn" onclick="goHome()">🏠 ہوم پیج پر واپس</button>
-</div>
+    <!-- جاواسکرپٹ کوڈ -->
+    <script>
+        // API کنفیگریشن
+        const API_KEY = "AIzaSyDVs_kb42MHgUPwCsf4JXSUXyeqNLbbQns";
+        const folders = {
+            items: "1MitrYYijfqm9vtOkRh5G--YK2UyYg80c",
+            deals: "1q4rht45Eb0XGNAo26eA2f0b7RYeQBypI",
+            videos: "1TFcZp-3lnzQYitK2jE5vLJzrJFh3umZH"
+        };
 
-<!-- ===== TOP AD ===== -->
-<div class="ad-label">Advertisement</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="2402391265"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+        // گلوبل متغیرات
+        let files = [], idx = 0, currentSection = "";
+        let allFiles = [];
+        let currentSearchTerm = "";
 
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+        // ===== سیکشنز کو کھولنے کے فنکشنز =====
+        function openWithSearch(type) {
+            currentSection = type;
+            hideAllSections();
+            showLoading();
+            showElement('searchSection');
+            
+            fetchItems(type).then(() => {
+                hideLoading();
+                showElement('galleryView');
+                document.getElementById('galleryTitle').textContent = 
+                    type === 'items' ? '🍔 تمام آئٹمز' : 
+                    type === 'deals' ? '🎁 خصوصی ڈیلز' : '🎥 ویڈیوز';
+                renderGallery();
+                updateSearchResults();
+            });
+        }
 
-<header class="brand-section">
-  <img src="https://lh3.googleusercontent.com/d/1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-" 
-       alt="Quick Bite Cafe Logo" 
-       class="brand-logo"
-       loading="eager">
-  
-  <h1>Quick Bite Cafe</h1>
-  <p class="tagline">
-    🕒 اوپننگ: 2:00 PM - 1:30 AM | 🚀 30 منٹ میں ڈیلیوری<br>
-    🎉 3KM کے اندر مفت ڈیلیوری | 3KM سے زیادہ: Rs.150 چارجز<br>
-    📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank">شاپ لوکیشن</a>
-  </p>
-</header>
+        function openSection(type) {
+            currentSection = type;
+            hideAllSections();
+            showLoading();
+            
+            fetchItems(type).then(() => {
+                hideLoading();
+                showElement('sliderSection');
+                document.getElementById('sliderTitle').textContent = 
+                    type === 'items' ? '🍔 آئٹمز' : 
+                    type === 'deals' ? '🎁 ڈیلز' : '🎥 ویڈیوز';
+                show();
+            });
+        }
 
-<!-- ===== MIDDLE AD 1 ===== -->
-<div class="ad-label">Special Offer</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="3907028717"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+        // ===== ڈیٹا حاصل کرنا =====
+        async function fetchItems(type) {
+            try {
+                const response = await fetch(
+                    `https://www.googleapis.com/drive/v3/files?q='${folders[type]}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,thumbnailLink)&pageSize=100`
+                );
+                const data = await response.json();
+                allFiles = data.files || [];
+                files = [...allFiles];
+                
+                if (files.length === 0) {
+                    alert("کوئی آئٹم نہیں ملا!");
+                    goHome();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
+                goHome();
+            }
+        }
 
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<div id="loading">
-  <div class="spinner"></div>
-  <p>آئٹمز لوڈ ہو رہے ہیں...</p>
-</div>
-
-<main id="home">
-  <div class="card">
-    <h2>🍔 آئٹمز دیکھیں</h2>
-    <p>سرچ بار کے ساتھ تیز تلاش کریں</p>
-    <button onclick="openWithSearch('items')">آئٹمز دیکھیں + سرچ</button>
-    <button onclick="openSection('items')">روایتی ویو</button>
-  </div>
-
-<!-- ===== MIDDLE AD 2 ===== -->
-<div class="ad-label">Today's Special</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="6813227809"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  
-  <div class="card">
-    <h2>🎁 ڈیلز اور پیکجز</h2>
-    <p>بچت کریں خصوصی ڈیلز کے ساتھ</p>
-    <button onclick="openWithSearch('deals')">ڈیلز دیکھیں + سرچ</button>
-    <button onclick="openSection('deals')">روایتی ویو</button>
-  </div>
-  
-  <!-- ===== MIDDLE AD 3 ===== -->
-<div class="ad-label">Recommended</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="3907028717"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  
-  <div class="card">
-    <h2>🎥 ویڈیوز</h2>
-    <p>ہمارے کھانے کی تیاری دیکھیں</p>
-    <button onclick="openSection('videos')">ویڈیوز دیکھیں</button>
-  </div>
-</main>
-
-<section class="slider" id="slider">
-  <h2 id="sliderTitle"></h2>
-  
-  <div id="mediaContainer"></div>
-  
-  <nav class="nav">
-    <button onclick="prev()">◀️ پچھلا</button>
-    <button onclick="next()">اگلا ▶️</button>
-  </nav>
-  
-  <!-- ===== AD INSIDE SLIDER ===== -->
-  <div class="ad-label">You might like</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="2402391265"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-  
-  <button id="orderBtn" onclick="order()">🛒 آرڈر کریں</button>
-  
-  <button class="home-btn" onclick="goHome()">🏠 ہوم پیج پر واپس</button>
-</section>
-
-<section id="orderForm">
-  <h2>📝 آرڈر کی تصدیق کریں</h2>
-  <form onsubmit="event.preventDefault();send()">
-    <input id="name" type="text" placeholder="آپ کا نام *" required>
-    <input id="phone" type="tel" placeholder="واٹس ایپ نمبر *" required>
-    <textarea id="address" rows="3" placeholder="مکمل پتہ *" required></textarea>
-    <input id="landmark" type="text" placeholder="لینڈ مارک (مثال: مسجد کے قریب)">
-    <button type="submit" style="width:100%">✅ واٹس ایپ پر آرڈر بھیجیں</button>
-  </form>
-</section>
-
-<footer class="contact">
-  <p>📞 واٹس ایپ آرڈر:</p>
-  <a href="https://wa.me/923159392716" target="_blank">+92 315 9392716</a>
-  <p style="margin-top:15px;font-size:0.9em;color:#888">
-    © 2025 Quick Bite Cafe. جملہ حقوق محفوظ ہیں۔
-  </p>
-</footer>
-
-<!-- ===== BOTTOM AD ===== -->
-<div class="ad-label">Advertisement</div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1417987183063486"
-     data-ad-slot="3907028717"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<script>
-const API_KEY="AIzaSyDVs_kb42MHgUPwCsf4JXSUXyeqNLbbQns";
-const folders={
-  items:"1MitrYYijfqm9vtOkRh5G--YK2UyYg80c",
-  deals:"1q4rht45Eb0XGNAo26eA2f0b7RYeQBypI",
-  videos:"1TFcZp-3lnzQYitK2jE5vLJzrJFh3umZH"
-};
-
-let files=[], idx=0, currentSection="";
-let allFiles = [];
-let currentSearchTerm = "";
-
-// ===== نئے سرچ فیچرز =====
-function openWithSearch(type) {
-    currentSection = type;
-    document.getElementById("home").style.display = "none";
-    document.getElementById("loading").style.display = "block";
-    document.getElementById("searchSection").style.display = "block";
-    
-    fetch(`https://www.googleapis.com/drive/v3/files?q='${folders[type]}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,thumbnailLink)&pageSize=100`)
-        .then(r => r.json())
-        .then(d => {
-            allFiles = d.files || [];
-            files = [...allFiles];
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("galleryView").style.display = "block";
+        // ===== سرچ فنکشنز =====
+        function performSearch() {
+            currentSearchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (currentSearchTerm === "") {
+                files = [...allFiles];
+            } else {
+                files = allFiles.filter(file => 
+                    file.name.toLowerCase().includes(currentSearchTerm)
+                );
+            }
+            
             renderGallery();
             updateSearchResults();
-        })
-        .catch(err => {
-            console.error('Error:', err);
-            alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
-            goHome();
-        });
-}
+        }
 
-function renderGallery() {
-    const container = document.getElementById("itemsGrid");
-    
-    if (files.length === 0) {
-        container.innerHTML = '<div class="no-results">کوئی آئٹم نہیں ملا۔ دوسرا نام آزمائیں۔</div>';
-        return;
-    }
-    
-    container.innerHTML = files.map(file => {
-        const imageUrl = file.thumbnailLink ? 
-            file.thumbnailLink.replace("=s220", "=s400") : 
-            `https://drive.google.com/uc?export=view&id=${file.id}`;
-        
-        return `
-            <div class="item-card" onclick="openItem('${file.id}')">
-                <img src="${imageUrl}" 
-                     alt="${file.name}" 
-                     class="item-image"
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/250x180/333/ffcc00?text=Image+Not+Found'">
-                <div class="item-name">${file.name}</div>
-            </div>
-        `;
-    }).join('');
-}
+        function renderGallery() {
+            const container = document.getElementById('itemsGrid');
+            
+            if (files.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center" style="grid-column: 1/-1; padding: 40px;">
+                        <h3>❌ کوئی نتیجہ نہیں ملا</h3>
+                        <p>"${currentSearchTerm}" کے لیے کوئی آئٹم نہیں ملا</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = files.map(file => {
+                const imageUrl = file.thumbnailLink ? 
+                    file.thumbnailLink.replace("=s220", "=s400") : 
+                    `https://drive.google.com/uc?export=view&id=${file.id}`;
+                
+                return `
+                    <div class="item-card" onclick="openItem('${file.id}')">
+                        <img src="${imageUrl}" 
+                             alt="${file.name}" 
+                             class="item-image"
+                             loading="lazy"
+                             onerror="this.src='https://via.placeholder.com/400x300/FF6B35/ffffff?text=Food+Item'">
+                        <div class="item-info">
+                            <div class="item-name">${file.name}</div>
+                            <button onclick="openItem('${file.id}')" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                👁️ دیکھیں
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
-function performSearch() {
-    currentSearchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
-    
-    if (currentSearchTerm === "") {
-        files = [...allFiles];
-    } else {
-        files = allFiles.filter(file => 
-            file.name.toLowerCase().includes(currentSearchTerm)
-        );
-    }
-    
-    renderGallery();
-    updateSearchResults();
-}
+        function updateSearchResults() {
+            const resultsElement = document.getElementById('searchResults');
+            if (files.length === 0) {
+                resultsElement.innerHTML = `<p style="color: #dc3545;">"${currentSearchTerm}" کے لیے کوئی نتیجہ نہیں ملا</p>`;
+            } else if (currentSearchTerm === "") {
+                resultsElement.innerHTML = `<p style="color: #28a745;">کل ${files.length} آئٹمز</p>`;
+            } else {
+                resultsElement.innerHTML = `<p style="color: #28a745;">"${currentSearchTerm}" کے لیے ${files.length} نتائج ملے</p>`;
+            }
+        }
 
-function updateSearchResults() {
-    const resultsElement = document.getElementById("searchResults");
-    if (files.length === 0) {
-        resultsElement.innerHTML = `"${currentSearchTerm}" کے لیے کوئی نتیجہ نہیں ملا`;
-    } else if (currentSearchTerm === "") {
-        resultsElement.innerHTML = `کل ${files.length} آئٹمز`;
-    } else {
-        resultsElement.innerHTML = `"${currentSearchTerm}" کے لیے ${files.length} نتائج ملے`;
-    }
-}
+        function openItem(fileId) {
+            const file = allFiles.find(f => f.id === fileId);
+            if (!file) return;
+            
+            idx = allFiles.findIndex(f => f.id === fileId);
+            hideAllSections();
+            showElement('sliderSection');
+            document.getElementById('sliderTitle').textContent = file.name;
+            show();
+        }
 
-function openItem(fileId) {
-    const file = allFiles.find(f => f.id === fileId);
-    if (!file) return;
-    
-    // سلیڈر ویو میں کھولنا
-    document.getElementById("galleryView").style.display = "none";
-    document.getElementById("searchSection").style.display = "none";
-    document.getElementById("slider").style.display = "block";
-    
-    idx = allFiles.findIndex(f => f.id === fileId);
-    show();
-}
+        // ===== سلیڈر فنکشنز =====
+        function show() {
+            const file = files[idx];
+            const container = document.getElementById('mediaContainer');
+            const orderBtn = document.getElementById('orderBtn');
+            
+            container.innerHTML = '';
+            
+            if (file.mimeType.includes("video")) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'video-wrapper';
+                wrapper.style.width = '100%';
+                wrapper.style.maxWidth = '800px';
+                wrapper.style.margin = '0 auto';
+                
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+                iframe.allow = 'autoplay';
+                iframe.style.width = '100%';
+                iframe.style.height = '450px';
+                iframe.style.borderRadius = '15px';
+                iframe.style.border = 'none';
+                
+                wrapper.appendChild(iframe);
+                container.appendChild(wrapper);
+                orderBtn.style.display = 'none';
+            } else {
+                const img = document.createElement('img');
+                const highResUrl = file.thumbnailLink ? 
+                    file.thumbnailLink.replace("=s220", "=s1000") : 
+                    `https://drive.google.com/uc?export=view&id=${file.id}`;
+                
+                img.src = highResUrl;
+                img.alt = file.name;
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '70vh';
+                img.style.borderRadius = '15px';
+                img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+                img.loading = 'eager';
+                
+                container.appendChild(img);
+                orderBtn.style.display = 'inline-block';
+            }
+        }
 
-// ===== پرانے فنکشنز =====
-function openSection(type){
-  currentSection=type;
-  document.getElementById("home").style.display="none";
-  document.getElementById("loading").style.display="block";
-  
-  fetch(`https://www.googleapis.com/drive/v3/files?q='${folders[type]}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,thumbnailLink)&pageSize=100`)
-    .then(r=>r.json())
-    .then(d=>{
-      files=d.files||[];
-      document.getElementById("loading").style.display="none";
-      
-      if(files.length>0){
-        document.getElementById("slider").style.display="block";
-        document.getElementById("sliderTitle").innerText=type==='items'?'🍔 آئٹمز':type==='deals'?'🎁 ڈیلز':'🎥 ویڈیوز';
-        idx=0;
-        show();
-      }else{
-        alert("کوئی فائل نہیں ملی!");
-        goHome();
-      }
-    })
-    .catch(err=>{
-      console.error('Error:',err);
-      alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
-      goHome();
-    });
-}
+        function next() {
+            idx = (idx + 1) % files.length;
+            show();
+        }
 
-function show(){
-  const file=files[idx];
-  const container=document.getElementById("mediaContainer");
-  const orderBtn=document.getElementById("orderBtn");
-  
-  container.innerHTML='';
-  
-  if(file.mimeType.includes("video")){
-    const wrapper=document.createElement('div');
-    wrapper.className='video-wrapper';
-    
-    const iframe=document.createElement('iframe');
-    iframe.src=`https://drive.google.com/file/d/${file.id}/preview`;
-    iframe.allow='autoplay';
-    
-    wrapper.appendChild(iframe);
-    
-    const errorDiv=document.createElement('div');
-    errorDiv.className='video-error';
-    errorDiv.innerHTML=`
-      <p>📹 <strong>${file.name}</strong></p>
-      <p style="margin:10px 0;font-size:0.9em">اگر ویڈیو نہ چلے تو نیچے کلک کریں:</p>
-      <a href="https://drive.google.com/file/d/${file.id}/view" target="_blank">
-        🎬 نئی ٹیب میں کھولیں
-      </a>
-    `;
-    
-    container.appendChild(wrapper);
-    container.appendChild(errorDiv);
-    orderBtn.style.display="none";
-    
-  }else{
-    const img=document.createElement('img');
-    const highResUrl=file.thumbnailLink?file.thumbnailLink.replace("=s220","=s1000"):`https://drive.google.com/uc?export=view&id=${file.id}`;
-    img.src=highResUrl;
-    img.alt=file.name;
-    img.loading="lazy";
-    container.appendChild(img);
-    orderBtn.style.display="inline-block";
-  }
-}
+        function prev() {
+            idx = (idx - 1 + files.length) % files.length;
+            show();
+        }
 
-function next(){
-  idx=(idx+1)%files.length;
-  show();
-}
+        // ===== آرڈر فنکشنز =====
+        function order() {
+            hideAllSections();
+            showElement('orderForm');
+        }
 
-function prev(){
-  idx=(idx-1+files.length)%files.length;
-  show();
-}
-
-function order(){
-  document.getElementById("orderForm").style.display="block";
-  document.getElementById("orderForm").scrollIntoView({behavior:'smooth'});
-}
-
-function send(){
-  const name=document.getElementById("name").value.trim();
-  const phone=document.getElementById("phone").value.trim();
-  const address=document.getElementById("address").value.trim();
-  const landmark=document.getElementById("landmark").value.trim();
-  
-  if(!name||!phone||!address){
-    alert("براہ کرم نام، فون نمبر اور پتہ درج کریں!");
-    return;
-  }
-  
-  const file=files[idx];
-  const itemName=file.name||"فوڈ آئٹم";
-  
-  let itemLink;
-  if(file.thumbnailLink){
-    itemLink=file.thumbnailLink.replace("=s220","=s1000");
-  }else{
-    itemLink=`https://drive.google.com/uc?export=view&id=${file.id}`;
-  }
-  
-  const msg=`*نیا آرڈر - Quick Bite Cafe*
-------------------------------
+        function sendOrder() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const landmark = document.getElementById('landmark').value.trim();
+            
+            if (!name || !phone || !address) {
+                alert("براہ کرم نام، فون نمبر اور پتہ درج کریں!");
+                return false;
+            }
+            
+            const file = files[idx];
+            const itemName = file.name || "فوڈ آئٹم";
+            
+            let itemLink;
+            if (file.thumbnailLink) {
+                itemLink = file.thumbnailLink.replace("=s220", "=s800");
+            } else {
+                itemLink = `https://drive.google.com/uc?export=view&id=${file.id}`;
+            }
+            
+            const message = `*نیا آرڈر - Quick Bite Cafe*
+-----------------------------
 *زمرہ:* ${currentSection}
 *آئٹم کا نام:* ${itemName}
-*تصویر کا لنک:* ${itemLink}
-------------------------------
+*تصویر:* ${itemLink}
+-----------------------------
 *گاہک:* ${name}
 *موبائل:* ${phone}
 *پتہ:* ${address}
-*لینڈ مارک:* ${landmark||'N/A'}
+*لینڈ مارک:* ${landmark || 'N/A'}
+*آرڈر وقت:* ${new Date().toLocaleString('ur-PK')}
 *ڈیلیوری وقت:* 30 منٹ`;
 
-  window.open("https://wa.me/923159392716?text="+encodeURIComponent(msg),"_blank");
-}
-
-function goHome(){
-  location.reload();
-}
-
-// ایونٹ لسٹنرز
-document.addEventListener('DOMContentLoaded', function() {
-    // سرچ بار کے لیے انٹر کی فنکشنلٹی
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            performSearch();
+            const whatsappUrl = `https://wa.me/923159392716?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // فارم ریسیٹ
+            document.getElementById('orderFormElement').reset();
+            goHome();
+            
+            return false;
         }
-    });
-    
-    // اشتہارات لوڈ کریں
-    const ads = document.querySelectorAll('.adsbygoogle');
-    ads.forEach(ad => {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    });
-    
-    // کی بورڈ شارٹ کٹس
-    document.addEventListener('keydown',function(e){
-        if(document.getElementById("slider").style.display==="block"){
-            if(e.key==="ArrowLeft") prev();
-            if(e.key==="ArrowRight") next();
+
+        // ===== یوٹیلیٹی فنکشنز =====
+        function goHome() {
+            hideAllSections();
+            showElement('home');
         }
-    });
-});
 
-// اشتہارات کو ہر 30 سیکنڈ بعد ریفریش کریں
-setInterval(() => {
-    (adsbygoogle = window.adsbygoogle || []).push({});
-}, 30000);
-</script>
+        function hideAllSections() {
+            document.querySelectorAll('.search-section, .gallery-view, .slider-section, #loading, #orderForm').forEach(el => {
+                el.classList.add('d-none');
+            });
+        }
 
+        function showElement(id) {
+            document.getElementById(id)?.classList.remove('d-none');
+        }
+
+        function hideElement(id) {
+            document.getElementById(id)?.classList.add('d-none');
+        }
+
+        function showLoading() {
+            document.getElementById('loading').classList.remove('d-none');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.add('d-none');
+        }
+
+        // ===== ایونٹ لسٹنرز =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // سرچ بار کے لیے انٹر کی
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // آرڈر فارم سبمیشن
+            document.getElementById('orderFormElement').addEventListener('submit', function(e) {
+                e.preventDefault();
+                sendOrder();
+            });
+            
+            // کی بورڈ شارٹ کٹس
+            document.addEventListener('keydown', function(e) {
+                if (document.getElementById('sliderSection').classList.contains('d-none') === false) {
+                    if (e.key === 'ArrowLeft') prev();
+                    if (e.key === 'ArrowRight') next();
+                    if (e.key === 'Escape') goHome();
+                }
+            });
+            
+            // اشتہارات لوڈ کریں
+            setTimeout(() => {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }, 1000);
+            
+            // اشتہارات ریفریش
+            setInterval(() => {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }, 30000);
+        });
+    </script>
 </body>
 </html>

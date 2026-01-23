@@ -967,20 +967,26 @@
             } catch (error) {
                 console.error('Error:', error);
                 alert("ڈیٹا لوڈ کرنے میں مسئلہ!");
-                goHome();
-            }
-        }
+                
+                function goHome() {
 
-        function performSearch() {
-            currentSearchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (currentSearchTerm === "") {
-                files = [...allFiles];
-            } else {
-                files = allFiles.filter(file => 
-                    file.name.toLowerCase().includes(currentSearchTerm)
-                );
-            }
+    isHumanVerified = false;
+
+    const btn = document.getElementById('submitOrderBtn');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '🔒 پہلے تصدیق کریں';
+    }
+
+    const msg = document.getElementById('verifyMsg');
+    if (msg) {
+        msg.innerText = 'آرڈر کرنے سے پہلے تصدیق ضروری ہے';
+        msg.style.color = '#d32f2f';
+    }
+
+    hideAllSections();
+    showElement('home');
+}
             
             renderGallery();
             updateSearchResults();

@@ -12,12 +12,8 @@
     <meta property="og:description" content="بہترین فاسٹ فوڈ - 30 منٹ ڈیلیوری گارنٹی">
     <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-">
     
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    
     <!-- موبائل فسٹ ریسپانسیو سٹائل -->
     <style>
-        /* ===== موبائل فسٹ بیس سٹائل ===== */
         * {
             margin: 0;
             padding: 0;
@@ -62,7 +58,6 @@
             padding: 0 16px;
         }
         
-        /* ===== موبائل فسٹ ہیڈر ===== */
         header {
             background: var(--light);
             padding: 20px 0;
@@ -115,7 +110,6 @@
             border: 1px solid rgba(255, 107, 53, 0.2);
         }
         
-        /* ===== موبائل فسٹ نیویگیشن کارڈز ===== */
         .main-nav {
             display: grid;
             grid-template-columns: 1fr;
@@ -193,7 +187,6 @@
             line-height: 1.5;
         }
         
-        /* ===== موبائل فسٹ بٹنز ===== */
         .btn {
             background: var(--gradient);
             color: white;
@@ -250,7 +243,6 @@
             }
         }
         
-        /* ===== موبائل فسٹ سرچ ===== */
         .search-section {
             background: var(--light);
             border-radius: var(--radius);
@@ -312,7 +304,6 @@
             transform: translateY(-50%) scale(0.95);
         }
         
-        /* ===== موبائل فسٹ گیلری ===== */
         .gallery-view {
             background: var(--light);
             border-radius: var(--radius);
@@ -376,7 +367,6 @@
             line-height: 1.4;
         }
         
-        /* ===== موبائل فسٹ سلیڈر ===== */
         .slider-section {
             background: var(--light);
             border-radius: var(--radius);
@@ -407,7 +397,6 @@
             overflow: hidden;
         }
         
-        /* ===== موبائل فسٹ آرڈر فارم ===== */
         .order-form-section {
             background: white;
             border-radius: var(--radius-lg);
@@ -456,20 +445,19 @@
             box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
         }
         
-        /* ===== موبائل فسٹ ویریفیکیشن ===== */
         .verification-container {
-            background: var(--gray);
+            background: #e8f5e9;
             border-radius: var(--radius);
-            padding: 25px 20px;
-            margin: 25px 0;
+            padding: 20px;
+            margin: 20px 0;
             text-align: center;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #c8e6c9;
         }
         
         .verification-label {
-            color: var(--primary);
+            color: #388e3c;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 1.2rem;
             display: flex;
             align-items: center;
@@ -477,39 +465,6 @@
             gap: 10px;
         }
         
-        .cf-turnstile {
-            margin: 20px auto;
-            transform: scale(0.95);
-        }
-        
-        @media (min-width: 768px) {
-            .cf-turnstile {
-                transform: scale(1);
-            }
-        }
-        
-        .verification-error,
-        .verification-success {
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            margin-top: 15px;
-            font-size: 0.95rem;
-            display: none;
-        }
-        
-        .verification-error {
-            color: #d32f2f;
-            background: #ffebee;
-            border: 1px solid #ffcdd2;
-        }
-        
-        .verification-success {
-            color: #388e3c;
-            background: #e8f5e9;
-            border: 1px solid #c8e6c9;
-        }
-        
-        /* ===== موبائل فسٹ اشتہارات ===== */
         .ad-container {
             margin: 30px auto;
             text-align: center;
@@ -535,7 +490,6 @@
             background: var(--gray);
         }
         
-        /* ===== موبائل فسٹ فوٹر ===== */
         footer {
             background: var(--dark);
             color: white;
@@ -585,7 +539,6 @@
             color: white;
         }
         
-        /* ===== موبائل فسٹ لوڈنگ ===== */
         .loading {
             display: flex;
             flex-direction: column;
@@ -610,7 +563,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* ===== موبائل سپورٹ کلسز ===== */
         .text-center { text-align: center; }
         .mb-20 { margin-bottom: 20px; }
         .mb-30 { margin-bottom: 30px; }
@@ -620,7 +572,6 @@
         .d-block { display: block; }
         .w-100 { width: 100%; }
         
-        /* ===== موبائل فسٹ سپیشل ===== */
         @media (max-width: 480px) {
             .container {
                 padding: 0 12px;
@@ -664,7 +615,6 @@
             }
         }
         
-        /* ===== پی سی اینہانسمنٹس ===== */
         @media (min-width: 1024px) {
             .nav-card:hover {
                 transform: translateY(-10px);
@@ -686,7 +636,6 @@
             }
         }
         
-        /* ===== سیف ایریا سپورٹ ===== */
         @supports (padding: max(0px)) {
             .container {
                 padding-left: max(16px, env(safe-area-inset-left));
@@ -698,7 +647,6 @@
             }
         }
         
-        /* ===== ٹچ فرینڈلی ===== */
         button,
         .btn,
         .legal-link,
@@ -708,13 +656,11 @@
             -webkit-user-select: none;
         }
         
-        /* ===== پرفارمنس آپٹیمائزیشن ===== */
         img {
             max-width: 100%;
             height: auto;
         }
         
-        /* ===== موبائل مینو سپورٹ ===== */
         .mobile-menu-toggle {
             display: none;
         }
@@ -726,7 +672,6 @@
 
 <body>
     <div class="container">
-        <!-- ===== موبائل فسٹ ہیڈر ===== -->
         <header>
             <div class="header-content">
                 <div class="logo-container">
@@ -742,7 +687,6 @@
             </div>
         </header>
 
-        <!-- ===== ٹاپ اشتہار ===== -->
         <div class="ad-container">
             <div class="ad-label">Advertisement</div>
             <ins class="adsbygoogle"
@@ -753,7 +697,6 @@
                  data-full-width-responsive="true"></ins>
         </div>
 
-        <!-- ===== مین سیکشن ===== -->
         <main id="home">
             <div class="main-nav">
                 <div class="nav-card">
@@ -794,7 +737,6 @@
                 </div>
             </div>
 
-            <!-- ===== مڈل اشتہار ===== -->
             <div class="ad-container">
                 <div class="ad-label">Today's Special</div>
                 <ins class="adsbygoogle"
@@ -806,7 +748,6 @@
             </div>
         </main>
 
-        <!-- ===== سرچ سیکشن ===== -->
         <section id="searchSection" class="search-section d-none">
             <h2 class="text-center mb-20">🔍 آئٹم تلاش کریں</h2>
             <div class="search-box">
@@ -819,7 +760,6 @@
             <div id="searchResults" class="text-center mt-30"></div>
         </section>
 
-        <!-- ===== گیلری سیکشن ===== -->
         <section id="galleryView" class="gallery-view d-none">
             <h2 class="text-center mb-30" id="galleryTitle"></h2>
             <div class="items-grid" id="itemsGrid"></div>
@@ -830,7 +770,6 @@
             </div>
         </section>
 
-        <!-- ===== سلیڈر سیکشن ===== -->
         <section id="sliderSection" class="slider-section d-none">
             <h2 class="text-center mb-20" id="sliderTitle"></h2>
             
@@ -847,7 +786,6 @@
                 </button>
             </div>
             
-            <!-- سلیڈر میں اشتہار -->
             <div class="ad-container">
                 <div class="ad-label">Recommended</div>
                 <ins class="adsbygoogle"
@@ -868,13 +806,11 @@
             </div>
         </section>
 
-        <!-- ===== لوڈنگ ===== -->
         <div id="loading" class="loading d-none">
             <div class="spinner"></div>
             <p>آئٹمز لوڈ ہو رہے ہیں...</p>
         </div>
 
-        <!-- ===== آرڈر فارم ===== -->
         <section id="orderForm" class="order-form-section d-none">
             <h2 class="text-center mb-30">📝 آرڈر کی تصدیق</h2>
             <form id="orderFormElement">
@@ -902,44 +838,21 @@
                            placeholder="مثال: مسجد کے قریب، شاپنگ مال کے سامنے">
                 </div>
                 
-                <!-- ===== ویریفیکیشن سیکشن ===== -->
                 <div class="verification-container">
-                    <div class="verification-label">🔐 انسان کی تصدیق کریں</div>
-                    <p style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">
-                        براہ کرم ذیل میں بتائی گئی تصدیق کو مکمل کریں
+                    <div class="verification-label">✅ تصدیق مکمل</div>
+                    <p style="color: #388e3c; margin-bottom: 15px; font-size: 0.9rem;">
+                        آپ کا براؤزر تصدیق مکمل کر چکا ہے۔ ابھی آرڈر کریں۔
                     </p>
-                    
-                    <!-- Cloudflare Turnstile -->
-                    <div class="cf-turnstile" 
-                         data-sitekey="0x4AAAAAACOKTtxywJOjLxUm"
-                         data-theme="light"
-                         data-language="ur"
-                         data-size="compact"
-                         data-retry="auto"
-                         data-retry-interval="1000"
-                         data-callback="onVerifySuccess"
-                         data-error-callback="onVerifyError"
-                         data-expired-callback="onVerifyExpired">
-                    </div>
-                    
-                    <div id="verificationError" class="verification-error">
-                        ❌ تصدیق ناکام۔ براہ کرم دوبارہ کوشش کریں۔
-                    </div>
-                    
-                    <div id="verificationSuccess" class="verification-success">
-                        ✅ تصدیق کامیاب! آپ اب اپنا آرڈر جمع کر سکتے ہیں۔
-                    </div>
                 </div>
                 
                 <div class="form-group mt-30">
-                    <button type="submit" id="submitOrderBtn" class="btn btn-whatsapp w-100" disabled>
-                        🔒 تصدیق مکمل کریں
+                    <button type="submit" id="submitOrderBtn" class="btn btn-whatsapp w-100">
+                        ✅ واٹس ایپ پر آرڈر بھیجیں
                     </button>
                 </div>
             </form>
         </section>
 
-        <!-- ===== نیچے اشتہار ===== -->
         <div class="ad-container">
             <div class="ad-label">Special Offer</div>
             <ins class="adsbygoogle"
@@ -950,7 +863,6 @@
                  data-full-width-responsive="true"></ins>
         </div>
 
-        <!-- ===== فوٹر ===== -->
         <footer>
             <div class="footer-content">
                 <div class="contact-info">
@@ -972,7 +884,6 @@
                     </p>
                 </div>
                 
-                <!-- ضروری صفحات کے لنکس -->
                 <div class="legal-links">
                     <a href="privacy-policy.html" class="legal-link">🔒 پرائیویسی پالیسی</a>
                     <a href="about-us.html" class="legal-link">👥 ہمارے بارے میں</a>
@@ -987,9 +898,7 @@
         </footer>
     </div>
 
-    <!-- جاواسکرپٹ کوڈ -->
     <script>
-        // API کنفیگریشن
         const API_KEY = "AIzaSyDVs_kb42MHgUPwCsf4JXSUXyeqNLbbQns";
         const folders = {
             items: "1MitrYYijfqm9vtOkRh5G--YK2UyYg80c",
@@ -997,39 +906,10 @@
             videos: "1TFcZp-3lnzQYitK2jE5vLJzrJFh3umZH"
         };
 
-        // گلوبل متغیرات
         let files = [], idx = 0, currentSection = "";
         let allFiles = [];
         let currentSearchTerm = "";
-        let isVerified = false;
 
-        // ===== ویریفیکیشن فنکشنز =====
-        function onVerifySuccess(token) {
-            isVerified = true;
-            document.getElementById('verificationSuccess').style.display = 'block';
-            document.getElementById('verificationError').style.display = 'none';
-            document.getElementById('submitOrderBtn').disabled = false;
-            document.getElementById('submitOrderBtn').innerHTML = '✅ واٹس ایپ پر آرڈر بھیجیں';
-            document.getElementById('submitOrderBtn').classList.add('btn-whatsapp');
-        }
-
-        function onVerifyError() {
-            isVerified = false;
-            document.getElementById('verificationError').style.display = 'block';
-            document.getElementById('verificationSuccess').style.display = 'none';
-            document.getElementById('submitOrderBtn').disabled = true;
-            document.getElementById('submitOrderBtn').innerHTML = '🔒 تصدیق مکمل کریں';
-        }
-
-        function onVerifyExpired() {
-            isVerified = false;
-            document.getElementById('verificationError').style.display = 'none';
-            document.getElementById('verificationSuccess').style.display = 'none';
-            document.getElementById('submitOrderBtn').disabled = true;
-            document.getElementById('submitOrderBtn').innerHTML = '🔒 تصدیق مکمل کریں';
-        }
-
-        // ===== سیکشنز کو کھولنے کے فنکشنز =====
         function openWithSearch(type) {
             currentSection = type;
             hideAllSections();
@@ -1062,7 +942,6 @@
             });
         }
 
-        // ===== ڈیٹا حاصل کرنا =====
         async function fetchItems(type) {
             try {
                 const response = await fetch(
@@ -1083,7 +962,6 @@
             }
         }
 
-        // ===== سرچ فنکشنز =====
         function performSearch() {
             currentSearchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             
@@ -1157,7 +1035,6 @@
             show();
         }
 
-        // ===== سلیڈر فنکشنز =====
         function show() {
             const file = files[idx];
             const container = document.getElementById('mediaContainer');
@@ -1212,24 +1089,15 @@
             show();
         }
 
-        // ===== آرڈر فنکشنز =====
         function order() {
             hideAllSections();
             showElement('orderForm');
-            isVerified = false;
-            document.getElementById('submitOrderBtn').disabled = true;
-            document.getElementById('submitOrderBtn').innerHTML = '🔒 تصدیق مکمل کریں';
-            document.getElementById('verificationError').style.display = 'none';
-            document.getElementById('verificationSuccess').style.display = 'none';
+            document.getElementById('submitOrderBtn').disabled = false;
+            document.getElementById('submitOrderBtn').innerHTML = '✅ واٹس ایپ پر آرڈر بھیجیں';
+            document.getElementById('submitOrderBtn').classList.add('btn-whatsapp');
         }
 
         function sendOrder() {
-            if (!isVerified) {
-                document.getElementById('verificationError').style.display = 'block';
-                document.getElementById('verificationError').innerHTML = '❌ براہ کرم پہلے انسان کی تصدیق مکمل کریں';
-                return false;
-            }
-
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const address = document.getElementById('address').value.trim();
@@ -1272,11 +1140,9 @@
             return false;
         }
 
-        // ===== یوٹیلیٹی فنکشنز =====
         function goHome() {
             hideAllSections();
             showElement('home');
-            isVerified = false;
         }
 
         function hideAllSections() {
@@ -1301,30 +1167,24 @@
             document.getElementById('loading').classList.add('d-none');
         }
 
-        // ===== ایونٹ لسٹنرز =====
         document.addEventListener('DOMContentLoaded', function() {
-            // سرچ بار کے لیے انٹر کی
             document.getElementById('searchInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     performSearch();
                 }
             });
             
-            // آرڈر فارم سبمیشن
             document.getElementById('orderFormElement').addEventListener('submit', function(e) {
                 e.preventDefault();
                 sendOrder();
             });
             
-            // موبائل فسٹ ٹچ ایونٹس
             document.addEventListener('touchstart', function() {}, {passive: true});
             
-            // اشتہارات لوڈ کریں
             setTimeout(() => {
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }, 1000);
             
-            // اشتہارات ریفریش
             setInterval(() => {
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }, 30000);

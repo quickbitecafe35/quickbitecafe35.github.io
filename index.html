@@ -1099,12 +1099,15 @@
         }
 
         function order() {
-            hideAllSections();
-            showElement('orderForm');
-            document.getElementById('submitOrderBtn').disabled = false;
-            document.getElementById('submitOrderBtn').innerHTML = '✅ واٹس ایپ پر آرڈر بھیجیں';
-            document.getElementById('submitOrderBtn').classList.add('btn-whatsapp');
-        }
+    hideAllSections();
+    showElement('orderForm');
+
+    const btn = document.getElementById('submitOrderBtn');
+    btn.disabled = !isHumanVerified;
+    btn.innerHTML = isHumanVerified
+        ? '✅ واٹس ایپ پر آرڈر بھیجیں'
+        : '🔒 پہلے تصدیق کریں';
+}
 
         function sendOrder() {
             const name = document.getElementById('name').value.trim();

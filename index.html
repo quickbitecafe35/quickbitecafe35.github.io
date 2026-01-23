@@ -1110,7 +1110,13 @@
 }
 
         function sendOrder() {
-            const name = document.getElementById('name').value.trim();
+
+    if (!isHumanVerified) {
+        alert("براہ کرم پہلے انسانی تصدیق مکمل کریں");
+        return false;
+    }
+
+    const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const address = document.getElementById('address').value.trim();
             const landmark = document.getElementById('landmark').value.trim();
@@ -1230,4 +1236,4 @@ function turnstileExpired() {
 }
 </script>
 </body>
-</html>
+</html>&

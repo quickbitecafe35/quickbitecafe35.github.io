@@ -1199,5 +1199,32 @@
             }, 30000);
         });
     </script>
+<script>
+let isHumanVerified = false;
+
+function turnstileVerified(token) {
+    isHumanVerified = true;
+
+    const btn = document.getElementById('submitOrderBtn');
+    btn.disabled = false;
+    btn.innerHTML = '✅ واٹس ایپ پر آرڈر بھیجیں';
+
+    const msg = document.getElementById('verifyMsg');
+    msg.innerText = 'تصدیق مکمل ہو گئی ہے، اب آرڈر کریں';
+    msg.style.color = '#388e3c';
+}
+
+function turnstileExpired() {
+    isHumanVerified = false;
+
+    const btn = document.getElementById('submitOrderBtn');
+    btn.disabled = true;
+    btn.innerHTML = '🔒 پہلے تصدیق کریں';
+
+    const msg = document.getElementById('verifyMsg');
+    msg.innerText = 'تصدیق ختم ہو گئی، دوبارہ تصدیق کریں';
+    msg.style.color = '#d32f2f';
+}
+</script>
 </body>
 </html>

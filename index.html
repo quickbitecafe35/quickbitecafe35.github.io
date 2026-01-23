@@ -501,11 +501,13 @@
             font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
         }
         
-        /* Turnstile CAPTCHA Styling */
+        /* Turnstile CAPTCHA Styling - Auto verification mode */
         .cf-turnstile {
             margin: 20px auto;
             display: flex;
             justify-content: center;
+            opacity: 0.7;
+            pointer-events: none;
         }
         
         .verification-notice {
@@ -515,6 +517,19 @@
             padding: 12px 15px;
             margin: 15px 0;
             color: #856404;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            display: none;
+        }
+        
+        .auto-verification-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: var(--radius-sm);
+            padding: 12px 15px;
+            margin: 15px 0;
+            color: #155724;
             font-size: 0.9rem;
             text-align: center;
             font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
@@ -677,6 +692,27 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
+        }
+        
+        /* Auto verification status */
+        .verification-status {
+            padding: 15px;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .verification-success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        
+        .verification-pending {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
         }
         
         @media (max-width: 480px) {
@@ -920,11 +956,18 @@
                 </button>
             </div>
             
-            <!-- Turnstile CAPTCHA - Hidden by default, shown only for image items -->
+            <!-- Auto Verification Status -->
+            <div id="verificationStatus" class="verification-status verification-pending">
+                <span id="verificationText">🔍 براؤزر کی خودکار تصدیق جاری ہے...</span>
+            </div>
+            
+            <!-- Auto verification message -->
+            <div class="auto-verification-message">
+                ✅ براؤزر خود بخود تصدیق کر رہا ہے۔ تھوڑی دیر انتظار کریں...
+            </div>
+            
+            <!-- Hidden Turnstile CAPTCHA for auto verification -->
             <div id="captchaContainer" class="mb-20" style="display: none;">
-                <div class="verification-notice">
-                    ✅ براہ کرم تصدیق مکمل کریں تاکہ آرڈر کا بٹن فعال ہو سکے
-                </div>
                 <div class="cf-turnstile" 
                      data-sitekey="0x4AAAAAACOKTtxywJOjLxUm"
                      data-callback="onCaptchaSuccess"
@@ -1059,7 +1102,9 @@
         let allFiles = [];
         let currentSearchTerm = "";
         let isCaptchaVerified = false;
-        let currentItemType = "image"; // "image" or "video"
+        let currentItemType = "image";
+        let autoVerificationAttempts = 0;
+        const MAX_AUTO_VERIFICATION_ATTEMPTS = 3;
 
         // Notification functions
         function showNotification(message, duration = 5000) {
@@ -1085,11 +1130,21 @@
             }, 300);
         }
 
-        // CAPTCHA callback functions
+        // CAPTCHA callback functions - AUTO VERIFICATION MODE
         function onCaptchaSuccess(token) {
-            console.log("CAPTCHA Success! Token:", token);
+            console.log("CAPTCHA Auto-Verification Success! Token:", token);
             isCaptchaVerified = true;
+            autoVerificationAttempts = 0;
+            
             const orderBtn = document.getElementById('orderBtn');
+            const verificationStatus = document.getElementById('verificationStatus');
+            const verificationText = document.getElementById('verificationText');
+            
+            // Update verification status
+            verificationStatus.className = "verification-status verification-success";
+            verificationText.innerHTML = '✅ براؤزر کی خودکار تصدیق مکمل ہو گئی!';
+            
+            // Enable order button
             orderBtn.disabled = false;
             orderBtn.innerHTML = '🛒 ابھی آرڈر کریں';
             orderBtn.classList.add('btn-success');
@@ -1099,28 +1154,102 @@
             document.getElementById('captchaContainer').style.display = 'none';
             
             showNotification('✅ تصدیق مکمل ہو گئی! اب آپ آرڈر کر سکتے ہیں۔');
+            
+            // Store verification in localStorage for session
+            localStorage.setItem('captcha_verified', 'true');
+            localStorage.setItem('captcha_token', token);
         }
 
         function onCaptchaError() {
             console.log("CAPTCHA Error!");
             isCaptchaVerified = false;
+            autoVerificationAttempts++;
+            
             const orderBtn = document.getElementById('orderBtn');
-            orderBtn.disabled = true;
-            orderBtn.innerHTML = '❌ تصدیق میں خرابی - دوبارہ کوشش کریں';
-            orderBtn.classList.remove('btn-success');
-            orderBtn.classList.remove('order-btn-active');
+            const verificationStatus = document.getElementById('verificationStatus');
+            const verificationText = document.getElementById('verificationText');
+            
+            if (autoVerificationAttempts < MAX_AUTO_VERIFICATION_ATTEMPTS) {
+                // Retry auto verification
+                verificationText.innerHTML = `🔍 خودکار تصدیق کی کوشش ${autoVerificationAttempts}/${MAX_AUTO_VERIFICATION_ATTEMPTS}...`;
+                
+                // Retry after delay
+                setTimeout(() => {
+                    initializeAutoCaptcha();
+                }, 1000 * autoVerificationAttempts);
+            } else {
+                // Max attempts reached
+                verificationText.innerHTML = '⚠️ خودکار تصدیق ناکام۔ براہ کرم صفحہ ریفریش کریں۔';
+                orderBtn.disabled = true;
+                orderBtn.innerHTML = '❌ تصدیق ناکام - ریفریش کریں';
+                orderBtn.classList.remove('btn-success');
+                orderBtn.classList.remove('order-btn-active');
+            }
+            
             showNotification('❌ تصدیق میں مسئلہ پیش آیا۔ براہ کرم دوبارہ کوشش کریں۔', 3000);
         }
 
         function onCaptchaExpired() {
             console.log("CAPTCHA Expired!");
             isCaptchaVerified = false;
+            
             const orderBtn = document.getElementById('orderBtn');
+            const verificationStatus = document.getElementById('verificationStatus');
+            const verificationText = document.getElementById('verificationText');
+            
+            verificationStatus.className = "verification-status verification-pending";
+            verificationText.innerHTML = '🔍 براؤزر کی خودکار تصدیق دوبارہ شروع ہو رہی ہے...';
+            
             orderBtn.disabled = true;
             orderBtn.innerHTML = '🔒 تصدیق کے بعد آرڈر کریں';
             orderBtn.classList.remove('btn-success');
             orderBtn.classList.remove('order-btn-active');
+            
+            // Retry auto verification
+            setTimeout(() => {
+                initializeAutoCaptcha();
+            }, 1000);
+            
             showNotification('⚠️ تصدیق کی میعاد ختم ہو گئی۔ براہ کرم دوبارہ کریں۔', 3000);
+        }
+
+        // Initialize auto CAPTCHA verification
+        function initializeAutoCaptcha() {
+            console.log("Initializing auto CAPTCHA verification...");
+            
+            // Check if already verified
+            if (localStorage.getItem('captcha_verified') === 'true') {
+                const storedToken = localStorage.getItem('captcha_token');
+                if (storedToken) {
+                    onCaptchaSuccess(storedToken);
+                    return;
+                }
+            }
+            
+            // Create hidden CAPTCHA for auto verification
+            const captchaContainer = document.getElementById('captchaContainer');
+            captchaContainer.style.display = 'block';
+            
+            // Clear any existing CAPTCHA
+            captchaContainer.innerHTML = '';
+            
+            // Create new CAPTCHA widget
+            const widget = document.createElement('div');
+            widget.className = 'cf-turnstile';
+            widget.setAttribute('data-sitekey', '0x4AAAAAACOKTtxywJOjLxUm');
+            widget.setAttribute('data-callback', 'onCaptchaSuccess');
+            widget.setAttribute('data-error-callback', 'onCaptchaError');
+            widget.setAttribute('data-expired-callback', 'onCaptchaExpired');
+            widget.setAttribute('data-retry', 'auto');
+            widget.setAttribute('data-retry-interval', '1000');
+            widget.setAttribute('data-appearance', 'always');
+            
+            captchaContainer.appendChild(widget);
+            
+            // Initialize Turnstile
+            if (window.turnstile) {
+                window.turnstile.render(widget);
+            }
         }
 
         function openWithSearch(type) {
@@ -1153,8 +1282,9 @@
                     type === 'deals' ? '🎁 ڈیلز' : '🎥 ویڈیوز';
                 show();
                 
-                // Reset CAPTCHA state
+                // Reset and initialize auto CAPTCHA
                 resetCaptchaState();
+                initializeAutoCaptcha();
             });
         }
 
@@ -1183,11 +1313,19 @@
 
         function resetCaptchaState() {
             isCaptchaVerified = false;
+            autoVerificationAttempts = 0;
             const orderBtn = document.getElementById('orderBtn');
+            const verificationStatus = document.getElementById('verificationStatus');
+            const verificationText = document.getElementById('verificationText');
+            
             orderBtn.disabled = true;
             orderBtn.innerHTML = '🔒 تصدیق کے بعد آرڈر کریں';
             orderBtn.classList.remove('btn-success');
             orderBtn.classList.remove('order-btn-active');
+            
+            verificationStatus.className = "verification-status verification-pending";
+            verificationText.innerHTML = '🔍 براؤزر کی خودکار تصدیق جاری ہے...';
+            
             document.getElementById('captchaContainer').style.display = 'none';
         }
 
@@ -1265,15 +1403,15 @@
             document.getElementById('sliderTitle').textContent = file.name;
             show();
             
-            // Reset CAPTCHA state
+            // Reset and initialize auto CAPTCHA
             resetCaptchaState();
+            initializeAutoCaptcha();
         }
 
         function show() {
             const file = files[idx];
             const container = document.getElementById('mediaContainer');
             const orderBtn = document.getElementById('orderBtn');
-            const captchaContainer = document.getElementById('captchaContainer');
             
             container.innerHTML = '';
             
@@ -1298,9 +1436,10 @@
                 wrapper.appendChild(iframe);
                 container.appendChild(wrapper);
                 
-                // Hide order button and CAPTCHA for videos
+                // Hide order button for videos
                 orderBtn.style.display = 'none';
-                captchaContainer.style.display = 'none';
+                document.getElementById('captchaContainer').style.display = 'none';
+                document.getElementById('verificationStatus').style.display = 'none';
                 
             } else {
                 // This is an image
@@ -1321,18 +1460,15 @@
                 
                 container.appendChild(img);
                 
-                // Show order button and CAPTCHA for images
+                // Show order button for images
                 orderBtn.style.display = 'inline-block';
-                captchaContainer.style.display = 'block';
+                document.getElementById('verificationStatus').style.display = 'block';
                 
-                // Reset CAPTCHA
-                resetCaptchaState();
-                
-                // Auto-check CAPTCHA if already verified
-                if (isCaptchaVerified) {
+                // Auto-check if already verified
+                if (localStorage.getItem('captcha_verified') === 'true') {
                     setTimeout(() => {
-                        onCaptchaSuccess("auto-verified");
-                    }, 100);
+                        onCaptchaSuccess(localStorage.getItem('captcha_token'));
+                    }, 500);
                 }
             }
         }
@@ -1492,20 +1628,10 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // Auto-verify on page load (for testing)
-            setTimeout(() => {
-                // Check if CAPTCHA is already verified (cached)
-                if (localStorage.getItem('captcha_verified') === 'true') {
-                    isCaptchaVerified = true;
-                    const orderBtn = document.getElementById('orderBtn');
-                    if (orderBtn && !orderBtn.disabled) {
-                        orderBtn.disabled = false;
-                        orderBtn.innerHTML = '🛒 ابھی آرڈر کریں';
-                        orderBtn.classList.add('btn-success');
-                        orderBtn.classList.add('order-btn-active');
-                    }
-                }
-            }, 2000);
+            // Check if already verified from previous session
+            if (localStorage.getItem('captcha_verified') === 'true') {
+                console.log("Already verified from previous session");
+            }
         });
     </script>
 </body>

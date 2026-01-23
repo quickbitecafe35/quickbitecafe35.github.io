@@ -840,11 +840,18 @@
                 </div>
                 
                 <div class="verification-container">
-                    <div class="verification-label">✅ تصدیق مکمل</div>
-                    <p style="color: #388e3c; margin-bottom: 15px; font-size: 0.9rem;">
-                        آپ کا براؤزر تصدیق مکمل کر چکا ہے۔ ابھی آرڈر کریں۔
-                    </p>
-                </div>
+    <div class="verification-label">🔐 انسانی تصدیق</div>
+
+    <div class="cf-turnstile"
+         data-sitekey="0x4AAAAAACOKTtxywJOjLxUm"
+         data-callback="turnstileVerified"
+         data-expired-callback="turnstileExpired">
+    </div>
+
+    <p id="verifyMsg" style="color:#d32f2f;margin-top:12px;font-size:0.9rem;">
+        آرڈر کرنے سے پہلے تصدیق ضروری ہے
+    </p>
+</div>
                 
                 <div class="form-group mt-30">
                     <button type="submit" id="submitOrderBtn" class="btn btn-whatsapp w-100">

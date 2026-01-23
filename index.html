@@ -2,7 +2,7 @@
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="google-site-verification" content="u0HQvmeVKbyBWL1oaDDylFERp4bmJKpg-IT7i_U0CmE" />
     <meta name="google-adsense-account" content="ca-pub-1417987183063486">
     <title>Quick Bite Cafe | تازہ فاسٹ فوڈ | 30 منٹ ڈیلیوری</title>
@@ -15,88 +15,62 @@
     <!-- Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
-    <!-- نیو مروفک/نیونی گلاس سٹائل -->
+    <!-- موبائل فسٹ ریسپانسیو سٹائل -->
     <style>
+        /* ===== موبائل فسٹ بیس سٹائل ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
         }
         
         :root {
             --primary: #FF6B35;
-            --primary-glow: rgba(255, 107, 53, 0.5);
+            --primary-light: #FF9E6D;
             --secondary: #FFA500;
-            --accent: #00D4AA;
-            --dark: #0A0A0F;
-            --darker: #050508;
+            --accent: #4CAF50;
+            --dark: #121212;
             --light: #FFFFFF;
-            --glass: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-hover: rgba(255, 255, 255, 0.15);
-            --shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 30px 70px rgba(255, 107, 53, 0.25);
-            --radius: 24px;
-            --radius-sm: 16px;
-            --radius-lg: 32px;
-            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --gradient: linear-gradient(135deg, #FF6B35 0%, #FFA500 50%, #FF4081 100%);
-            --gradient-dark: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 165, 0, 0.1) 50%, rgba(255, 64, 129, 0.1) 100%);
+            --gray: #F5F5F5;
+            --gray-dark: #333333;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --radius-lg: 24px;
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #FFA500 100%);
         }
         
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--light);
+            background: var(--light);
+            color: var(--dark);
             min-height: 100vh;
-            line-height: 1.8;
+            line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 165, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255, 64, 129, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
+            padding-bottom: env(safe-area-inset-bottom);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
-            max-width: 1400px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 25px;
+            padding: 0 16px;
         }
         
-        /* ===== نیونی ہیڈر ===== */
+        /* ===== موبائل فسٹ ہیڈر ===== */
         header {
-            background: rgba(10, 10, 15, 0.7);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 25px 0;
+            background: var(--light);
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            margin: 25px auto;
-            width: 95%;
-            border-radius: var(--radius-lg);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            animation: slideDown 0.8s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid var(--primary);
         }
         
         .header-content {
@@ -104,124 +78,75 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
+            gap: 15px;
         }
         
         .logo-container {
             position: relative;
-            margin-bottom: 25px;
+            width: 90px;
+            height: 90px;
         }
         
         .logo {
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid transparent;
-            background: linear-gradient(var(--dark), var(--dark)) padding-box,
-                        var(--gradient) border-box;
-            box-shadow: 
-                0 0 50px var(--primary-glow),
-                0 10px 30px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo-glow {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: var(--gradient);
-            border-radius: 50%;
-            filter: blur(30px);
-            opacity: 0.5;
-            animation: pulse 4s ease-in-out infinite alternate;
-            z-index: 0;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-15px) rotate(2deg); }
-            66% { transform: translateY(10px) rotate(-1deg); }
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.3; transform: scale(0.95); }
-            100% { opacity: 0.7; transform: scale(1.05); }
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
         }
         
         h1 {
-            font-size: 3.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-            right: 25%;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 3px;
-            opacity: 0.7;
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0 5px;
         }
         
         .tagline {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 20px 35px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 165, 0, 0.1));
+            padding: 15px 20px;
             border-radius: var(--radius);
-            margin: 20px 0;
-            font-size: 1.3rem;
-            max-width: 800px;
-            line-height: 1.6;
-            position: relative;
-            overflow: hidden;
+            font-size: 1rem;
+            color: var(--gray-dark);
+            text-align: center;
+            width: 100%;
+            border: 1px solid rgba(255, 107, 53, 0.2);
         }
         
-        .tagline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient);
-        }
-        
-        /* ===== نیونی مین نیویگیشن ===== */
+        /* ===== موبائل فسٹ نیویگیشن کارڈز ===== */
         .main-nav {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 35px;
-            margin: 60px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        @media (min-width: 768px) {
+            .main-nav {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .main-nav {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
         }
         
         .nav-card {
-            background: var(--glass);
-            backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            padding: 45px 35px;
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            text-align: center;
             position: relative;
             overflow: hidden;
-            transition: var(--transition);
-            cursor: pointer;
         }
         
         .nav-card::before {
@@ -229,82 +154,51 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 5px;
             height: 100%;
-            background: var(--gradient-dark);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 0;
-        }
-        
-        .nav-card::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
             background: var(--gradient);
-            border-radius: calc(var(--radius) + 2px);
             opacity: 0;
             transition: var(--transition);
-            z-index: -1;
         }
         
-        .nav-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: transparent;
-            box-shadow: var(--shadow-hover);
+        .nav-card:hover,
+        .nav-card:active {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
-        .nav-card:hover::before {
+        .nav-card:hover::before,
+        .nav-card:active::before {
             opacity: 1;
         }
         
-        .nav-card:hover::after {
-            opacity: 0.3;
-        }
-        
         .nav-icon {
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            display: inline-block;
-            animation: bounce 3s ease-in-out infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
         }
         
         .nav-card h2 {
-            color: var(--light);
-            margin-bottom: 15px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 600;
         }
         
         .nav-card p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
         
-        /* ===== نیونی بٹنز ===== */
+        /* ===== موبائل فسٹ بٹنز ===== */
         .btn {
-            background: linear-gradient(135deg, 
-                rgba(255, 107, 53, 0.9), 
-                rgba(255, 165, 0, 0.9));
+            background: var(--gradient);
             color: white;
             border: none;
-            padding: 18px 35px;
+            padding: 14px 24px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
@@ -313,439 +207,340 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 10px 30px rgba(255, 107, 53, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+            gap: 8px;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.2), 
-                transparent);
-            transition: left 0.7s;
-            z-index: -1;
+            touch-action: manipulation;
         }
         
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 20px 50px rgba(255, 107, 53, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn:hover::before {
-            left: 100%;
+        .btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(255, 107, 53, 0.2);
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, 
-                rgba(108, 117, 125, 0.9), 
-                rgba(73, 80, 87, 0.9));
+            background: linear-gradient(135deg, #6c757d, #495057);
         }
         
         .btn-success {
-            background: linear-gradient(135deg, 
-                rgba(40, 167, 69, 0.9), 
-                rgba(32, 201, 151, 0.9));
+            background: linear-gradient(135deg, var(--accent), #388E3C);
         }
         
         .btn-whatsapp {
-            background: linear-gradient(135deg, 
-                rgba(37, 211, 102, 0.9), 
-                rgba(18, 140, 126, 0.9));
+            background: linear-gradient(135deg, #25D366, #128C7E);
         }
         
         .btn-group {
             display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
         }
         
-        /* ===== نیونی سرچ سیکشن ===== */
+        @media (min-width: 640px) {
+            .btn-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .btn {
+                width: auto;
+                min-width: 160px;
+            }
+        }
+        
+        /* ===== موبائل فسٹ سرچ ===== */
         .search-section {
-            background: var(--glass);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 50px;
-            margin: 60px 0;
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            margin: 30px 0;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .search-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
+            border: 1px solid #eee;
         }
         
         .search-box {
             position: relative;
-            max-width: 800px;
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
         }
         
         #searchInput {
             width: 100%;
-            padding: 22px 70px 22px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 107, 53, 0.3);
+            padding: 16px 60px 16px 20px;
             border-radius: 50px;
-            color: var(--light);
-            font-size: 1.2rem;
+            border: 2px solid var(--primary);
+            background: var(--gray);
+            color: var(--dark);
+            font-size: 1rem;
             direction: rtl;
             text-align: right;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
+            -webkit-appearance: none;
+            appearance: none;
         }
         
         #searchInput:focus {
             outline: none;
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 0 0 4px rgba(255, 107, 53, 0.15),
-                0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        #searchInput::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            border-color: var(--secondary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
         }
         
         .search-btn {
             position: absolute;
-            left: 20px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--gradient);
+            background: var(--primary);
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 44px;
+            height: 44px;
             cursor: pointer;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .search-btn:hover {
-            transform: translateY(-50%) scale(1.1) rotate(15deg);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        .search-btn:active {
+            transform: translateY(-50%) scale(0.95);
         }
         
-        /* ===== نیونی گیلری ===== */
+        /* ===== موبائل فسٹ گیلری ===== */
         .gallery-view {
-            background: var(--glass);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 50px;
-            margin: 60px 0;
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            margin: 30px 0;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery-view::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
         }
         
         .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
-            margin: 40px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        @media (min-width: 640px) {
+            .items-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
         }
         
         .item-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            background: white;
             border-radius: var(--radius);
             overflow: hidden;
+            box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 1px solid #eee;
             cursor: pointer;
             position: relative;
         }
         
-        .item-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: var(--gradient-dark);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 0;
-        }
-        
-        .item-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .item-card:hover::before {
-            opacity: 1;
+        .item-card:active {
+            transform: scale(0.98);
         }
         
         .item-image {
             width: 100%;
-            height: 250px;
+            height: 180px;
             object-fit: cover;
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .item-card:hover .item-image {
-            transform: scale(1.08);
+            display: block;
         }
         
         .item-info {
-            padding: 25px;
-            position: relative;
-            z-index: 1;
+            padding: 15px;
         }
         
         .item-name {
-            color: var(--light);
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
         
-        /* ===== نیونی آرڈر فارم ===== */
-        .order-form-section {
-            background: var(--glass);
-            backdrop-filter: blur(40px) saturate(200%);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 60px;
-            margin: 80px auto;
-            max-width: 700px;
-            box-shadow: 
-                var(--shadow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            position: relative;
+        /* ===== موبائل فسٹ سلیڈر ===== */
+        .slider-section {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .media-container {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray);
+            border-radius: var(--radius);
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ddd;
             overflow: hidden;
         }
         
-        .order-form-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
+        /* ===== موبائل فسٹ آرڈر فارم ===== */
+        .order-form-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 25px 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: var(--shadow-lg);
+            border-top: 5px solid var(--primary);
         }
         
-        .order-form-section::after {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-            opacity: 0.3;
-            z-index: 0;
+        @media (min-width: 768px) {
+            .order-form-section {
+                padding: 35px 30px;
+            }
         }
         
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: right;
-            position: relative;
-            z-index: 1;
         }
         
         .form-label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: var(--primary);
             font-weight: 600;
-            font-size: 1.1rem;
-            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+            font-size: 0.95rem;
         }
         
         .form-input {
             width: 100%;
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            color: var(--light);
-            font-size: 1.1rem;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            border: 2px solid #ddd;
+            background: var(--gray);
+            font-size: 1rem;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
+            -webkit-appearance: none;
+            appearance: none;
         }
         
         .form-input:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 0 0 4px rgba(255, 107, 53, 0.15),
-                0 20px 40px rgba(0, 0, 0, 0.2);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
         }
         
-        /* ===== نیونی ویریفیکیشن ===== */
+        /* ===== موبائل فسٹ ویریفیکیشن ===== */
         .verification-container {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
+            background: var(--gray);
             border-radius: var(--radius);
-            padding: 35px;
-            margin: 40px 0;
+            padding: 25px 20px;
+            margin: 25px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .verification-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
+            border: 2px solid #e0e0e0;
         }
         
         .verification-label {
             color: var(--primary);
             font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-        }
-        
-        .verification-label::before {
-            content: '🔐';
-            font-size: 2rem;
-            animation: bounce 2s infinite;
+            gap: 10px;
         }
         
         .cf-turnstile {
-            margin: 25px auto;
-            transform: scale(1.05);
+            margin: 20px auto;
+            transform: scale(0.95);
+        }
+        
+        @media (min-width: 768px) {
+            .cf-turnstile {
+                transform: scale(1);
+            }
+        }
+        
+        .verification-error,
+        .verification-success {
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            margin-top: 15px;
+            font-size: 0.95rem;
+            display: none;
         }
         
         .verification-error {
-            color: #FF6B6B;
-            background: rgba(255, 107, 107, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            display: none;
-            backdrop-filter: blur(10px);
+            color: #d32f2f;
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
         }
         
         .verification-success {
-            color: #4CD964;
-            background: rgba(76, 217, 100, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border: 1px solid rgba(76, 217, 100, 0.3);
-            display: none;
-            backdrop-filter: blur(10px);
-            animation: successPulse 2s ease-in-out infinite;
+            color: #388e3c;
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
         }
         
-        @keyframes successPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        /* ===== اشتہارات ===== */
+        /* ===== موبائل فسٹ اشتہارات ===== */
         .ad-container {
-            margin: 50px auto;
+            margin: 30px auto;
             text-align: center;
-            position: relative;
         }
         
         .ad-label {
-            font-size: 0.95rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+            letter-spacing: 1px;
         }
         
         .adsbygoogle {
             border-radius: var(--radius);
             overflow: hidden;
-            margin: 30px auto !important;
-            border: 1px solid var(--glass-border);
-            background: rgba(0, 0, 0, 0.3);
-            box-shadow: var(--shadow);
+            margin: 15px auto !important;
+            border: 1px solid #eee;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray);
         }
         
-        /* ===== نیونی فوٹر ===== */
+        /* ===== موبائل فسٹ فوٹر ===== */
         footer {
-            background: rgba(5, 5, 8, 0.8);
-            backdrop-filter: blur(30px);
-            border-top: 1px solid var(--glass-border);
-            padding: 60px 0 40px;
-            margin-top: 80px;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 30px;
+            margin-top: 50px;
         }
         
         .footer-content {
@@ -753,230 +548,203 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 35px;
+            gap: 25px;
         }
         
         .contact-info {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
-            max-width: 500px;
             width: 100%;
+            max-width: 400px;
         }
         
         .legal-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .legal-link {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            padding: 12px 25px;
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             transition: var(--transition);
-            font-size: 0.95rem;
-            backdrop-filter: blur(10px);
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
         
-        .legal-link:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-            background: rgba(255, 107, 53, 0.1);
-            transform: translateY(-3px);
+        .legal-link:active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
         }
         
-        /* ===== نیونی لوڈنگ ===== */
+        /* ===== موبائل فسٹ لوڈنگ ===== */
         .loading {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 100px;
+            padding: 60px 20px;
             color: var(--primary);
         }
         
         .spinner {
-            width: 80px;
-            height: 80px;
-            border: 4px solid rgba(255, 107, 53, 0.1);
-            border-top: 4px solid var(--primary);
-            border-right: 4px solid var(--primary);
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary);
             border-radius: 50%;
-            animation: spin 1.5s linear infinite;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
         }
         
-        .spinner::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            border-top: 3px solid var(--secondary);
-            animation: spin 2s linear infinite reverse;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        /* ===== رسپانسیو ===== */
-        @media (max-width: 1200px) {
-            .main-nav {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
-            }
-        }
+        /* ===== موبائل سپورٹ کلسز ===== */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .d-none { display: none !important; }
+        .d-block { display: block; }
+        .w-100 { width: 100%; }
         
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
+        /* ===== موبائل فسٹ سپیشل ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
             }
             
-            .logo {
-                width: 120px;
-                height: 120px;
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-container {
+                width: 70px;
+                height: 70px;
             }
             
             .nav-card {
-                padding: 35px 25px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+                padding: 20px 15px;
             }
             
-            h1 {
-                font-size: 2.2rem;
+            .nav-icon {
+                font-size: 2.8rem;
             }
             
-            .main-nav {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .btn-group {
-                flex-direction: column;
+            .nav-card h2 {
+                font-size: 1.2rem;
             }
             
             .btn {
-                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.95rem;
             }
             
             .search-section,
             .gallery-view,
-            .order-form-section {
-                padding: 35px 25px;
+            .slider-section {
+                padding: 20px 15px;
+                margin: 25px 0;
             }
             
-            .items-grid {
-                grid-template-columns: 1fr;
+            .item-image {
+                height: 150px;
             }
         }
         
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
+        /* ===== پی سی اینہانسمنٹس ===== */
+        @media (min-width: 1024px) {
+            .nav-card:hover {
+                transform: translateY(-10px);
             }
             
-            .logo {
-                width: 100px;
-                height: 100px;
+            .item-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             }
             
-            .tagline {
-                padding: 15px 25px;
-                font-size: 1.1rem;
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255,107,53,0.4);
             }
             
-            .nav-icon {
-                font-size: 3.5rem;
-            }
-            
-            .nav-card h2 {
-                font-size: 1.8rem;
+            .search-btn:hover {
+                background: var(--secondary);
+                transform: translateY(-50%) scale(1.1);
             }
         }
         
-        /* ===== یوٹیلیٹی ===== */
-        .text-center { text-align: center; }
-        .mb-20 { margin-bottom: 20px; }
-        .mb-30 { margin-bottom: 30px; }
-        .mb-40 { margin-bottom: 40px; }
-        .mt-30 { margin-top: 30px; }
-        .mt-40 { margin-top: 40px; }
-        .mt-60 { margin-top: 60px; }
-        .d-none { display: none; }
-        .d-block { display: block; }
-        .w-100 { width: 100%; }
-        .hidden { opacity: 0; visibility: hidden; }
-        .visible { opacity: 1; visibility: visible; }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
+        /* ===== سیف ایریا سپورٹ ===== */
+        @supports (padding: max(0px)) {
+            .container {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+            }
+            
+            footer {
+                padding-bottom: max(30px, env(safe-area-inset-bottom));
+            }
         }
         
-        ::-webkit-scrollbar-track {
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(10px);
+        /* ===== ٹچ فرینڈلی ===== */
+        button,
+        .btn,
+        .legal-link,
+        .nav-card {
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient);
-            border-radius: 6px;
-            border: 3px solid rgba(10, 10, 15, 0.8);
+        /* ===== پرفارمنس آپٹیمائزیشن ===== */
+        img {
+            max-width: 100%;
+            height: auto;
         }
         
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #FF4081 0%, #FF6B35 50%, #FFA500 100%);
+        /* ===== موبائل مینو سپورٹ ===== */
+        .mobile-menu-toggle {
+            display: none;
         }
     </style>
     
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
-    
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <!-- ===== نیونی ہیڈر ===== -->
+        <!-- ===== موبائل فسٹ ہیڈر ===== -->
         <header>
             <div class="header-content">
                 <div class="logo-container">
-                    <div class="logo-glow"></div>
                     <img src="https://lh3.googleusercontent.com/d/1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-" 
                          alt="Quick Bite Cafe Logo" 
                          class="logo">
                 </div>
                 <h1>Quick Bite Cafe</h1>
                 <p class="tagline">
-                    🕒 اوپننگ: 2:00 PM - 1:30 AM | 🚀 30 منٹ میں ڈیلیوری<br>
-                    🎉 3KM کے اندر مفت ڈیلیوری | 3KM سے زیادہ: Rs.150 چارجز<br>
-                    📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank" class="btn btn-secondary" style="padding: 12px 25px; margin-top: 15px;">
-                        🗺️ شاپ لوکیشن دیکھیں
-                    </a>
+                    🕒 اوپننگ: 2:00 PM - 1:30 AM | 🚀 30 منٹ ڈیلیوری<br>
+                    🎉 3KM کے اندر مفت ڈیلیوری
                 </p>
             </div>
         </header>
 
         <!-- ===== ٹاپ اشتہار ===== -->
         <div class="ad-container">
-            <div class="ad-label">Premium Advertisement</div>
+            <div class="ad-label">Advertisement</div>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1417987183063486"
@@ -991,7 +759,7 @@
                 <div class="nav-card">
                     <div class="nav-icon">🍔</div>
                     <h2>آئٹمز دیکھیں</h2>
-                    <p>تازہ برگر، پیزا اور پریمیم فاسٹ فوڈ آئٹمز</p>
+                    <p>تازہ برگر، پیزا اور فاسٹ فوڈ آئٹمز</p>
                     <div class="btn-group">
                         <button onclick="openWithSearch('items')" class="btn">
                             🔍 سرچ کے ساتھ دیکھیں
@@ -1028,7 +796,7 @@
 
             <!-- ===== مڈل اشتہار ===== -->
             <div class="ad-container">
-                <div class="ad-label">آج کی خصوصی پیشکش</div>
+                <div class="ad-label">Today's Special</div>
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-1417987183063486"
@@ -1040,7 +808,7 @@
 
         <!-- ===== سرچ سیکشن ===== -->
         <section id="searchSection" class="search-section d-none">
-            <h2 class="text-center mb-40">🔍 آئٹم تلاش کریں</h2>
+            <h2 class="text-center mb-20">🔍 آئٹم تلاش کریں</h2>
             <div class="search-box">
                 <input type="text" id="searchInput" 
                        placeholder="برگر، پیزا، چکن وغیرہ تلاش کریں...">
@@ -1048,14 +816,14 @@
                     🔍
                 </button>
             </div>
-            <div id="searchResults" class="text-center mt-40"></div>
+            <div id="searchResults" class="text-center mt-30"></div>
         </section>
 
         <!-- ===== گیلری سیکشن ===== -->
         <section id="galleryView" class="gallery-view d-none">
-            <h2 class="text-center mb-40" id="galleryTitle"></h2>
+            <h2 class="text-center mb-30" id="galleryTitle"></h2>
             <div class="items-grid" id="itemsGrid"></div>
-            <div class="text-center mt-40">
+            <div class="text-center mt-30">
                 <button onclick="goHome()" class="btn btn-secondary">
                     🏠 ہوم پیج پر واپس
                 </button>
@@ -1063,14 +831,14 @@
         </section>
 
         <!-- ===== سلیڈر سیکشن ===== -->
-        <section id="sliderSection" class="gallery-view d-none">
-            <h2 class="text-center mb-40" id="sliderTitle"></h2>
+        <section id="sliderSection" class="slider-section d-none">
+            <h2 class="text-center mb-20" id="sliderTitle"></h2>
             
-            <div class="media-container" id="mediaContainer" 
-                 style="min-height: 500px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: var(--radius); padding: 40px; border: 1px solid var(--glass-border);">
+            <div class="media-container" id="mediaContainer">
+                <!-- میڈیا یہاں لوڈ ہوگا -->
             </div>
             
-            <div class="slider-nav" style="display: flex; justify-content: center; gap: 25px; margin: 40px 0;">
+            <div class="slider-nav">
                 <button onclick="prev()" class="btn">
                     ◀️ پچھلا
                 </button>
@@ -1081,7 +849,7 @@
             
             <!-- سلیڈر میں اشتہار -->
             <div class="ad-container">
-                <div class="ad-label">آپ کے لیے تجویز کردہ</div>
+                <div class="ad-label">Recommended</div>
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-1417987183063486"
@@ -1090,7 +858,7 @@
                      data-full-width-responsive="true"></ins>
             </div>
             
-            <div class="text-center mt-40">
+            <div class="text-center mt-30">
                 <button id="orderBtn" onclick="order()" class="btn btn-success">
                     🛒 ابھی آرڈر کریں
                 </button>
@@ -1108,7 +876,7 @@
 
         <!-- ===== آرڈر فارم ===== -->
         <section id="orderForm" class="order-form-section d-none">
-            <h2 class="text-center mb-40">📝 آرڈر کی تصدیق</h2>
+            <h2 class="text-center mb-30">📝 آرڈر کی تصدیق</h2>
             <form id="orderFormElement">
                 <div class="form-group">
                     <label class="form-label">آپ کا نام *</label>
@@ -1125,7 +893,7 @@
                 <div class="form-group">
                     <label class="form-label">مکمل پتہ *</label>
                     <textarea id="address" class="form-input" 
-                              rows="4" placeholder="مکمل پتہ لکھیں" required></textarea>
+                              rows="3" placeholder="مکمل پتہ لکھیں" required></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -1136,17 +904,17 @@
                 
                 <!-- ===== ویریفیکیشن سیکشن ===== -->
                 <div class="verification-container">
-                    <div class="verification-label">انسان کی تصدیق کریں</div>
-                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 25px; font-size: 1.1rem;">
+                    <div class="verification-label">🔐 انسان کی تصدیق کریں</div>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">
                         براہ کرم ذیل میں بتائی گئی تصدیق کو مکمل کریں
                     </p>
                     
                     <!-- Cloudflare Turnstile -->
                     <div class="cf-turnstile" 
                          data-sitekey="0x4AAAAAACOKTtxywJOjLxUm"
-                         data-theme="dark"
+                         data-theme="light"
                          data-language="ur"
-                         data-size="normal"
+                         data-size="compact"
                          data-retry="auto"
                          data-retry-interval="1000"
                          data-callback="onVerifySuccess"
@@ -1163,7 +931,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group mt-40">
+                <div class="form-group mt-30">
                     <button type="submit" id="submitOrderBtn" class="btn btn-whatsapp w-100" disabled>
                         🔒 تصدیق مکمل کریں
                     </button>
@@ -1173,7 +941,7 @@
 
         <!-- ===== نیچے اشتہار ===== -->
         <div class="ad-container">
-            <div class="ad-label">خصوصی پیشکش</div>
+            <div class="ad-label">Special Offer</div>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1417987183063486"
@@ -1193,12 +961,15 @@
                     </a>
                 </div>
                 
-                <div style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
+                <div>
                     <p>🎯 30 منٹ ڈیلیوری گارنٹی</p>
                     <p>⭐ بہترین معیار، بہترین قیمت</p>
-                    <p class="mt-20">📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank" style="color: var(--primary); text-decoration: none; border-bottom: 2px solid var(--primary); padding-bottom: 2px;">
-                        شاپ لوکیشن دیکھیں
-                    </a></p>
+                    <p class="mt-20">
+                        📍 <a href="https://maps.app.goo.gl/3PhYaP1YAQKJg2oD6" target="_blank" 
+                           class="btn" style="padding: 8px 16px; font-size: 0.9rem;">
+                            🗺️ شاپ لوکیشن
+                        </a>
+                    </p>
                 </div>
                 
                 <!-- ضروری صفحات کے لنکس -->
@@ -1207,10 +978,9 @@
                     <a href="about-us.html" class="legal-link">👥 ہمارے بارے میں</a>
                     <a href="contact-us.html" class="legal-link">📞 رابطہ کریں</a>
                     <a href="terms-conditions.html" class="legal-link">📜 شرائط و ضوابط</a>
-                    <a href="disclaimer.html" class="legal-link">⚠️ دستبرداری</a>
                 </div>
                 
-                <p style="text-align: center; color: rgba(255,255,255,0.5); margin-top: 20px; font-size: 0.9rem;">
+                <p style="text-align: center; color: rgba(255,255,255,0.7); margin-top: 20px; font-size: 0.85rem;">
                     © 2025 Quick Bite Cafe. جملہ حقوق محفوظ ہیں۔
                 </p>
             </div>
@@ -1334,9 +1104,9 @@
             
             if (files.length === 0) {
                 container.innerHTML = `
-                    <div class="text-center" style="grid-column: 1/-1; padding: 60px; background: rgba(255,255,255,0.03); border-radius: var(--radius); border: 1px solid var(--glass-border);">
-                        <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">❌ کوئی نتیجہ نہیں ملا</h3>
-                        <p style="font-size: 1.2rem; color: rgba(255,255,255,0.7);">"${currentSearchTerm}" کے لیے کوئی آئٹم نہیں ملا</p>
+                    <div class="text-center" style="grid-column: 1/-1; padding: 40px;">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">❌ کوئی نتیجہ نہیں ملا</h3>
+                        <p style="color: #666;">"${currentSearchTerm}" کے لیے کوئی آئٹم نہیں ملا</p>
                     </div>
                 `;
                 return;
@@ -1344,7 +1114,7 @@
             
             container.innerHTML = files.map(file => {
                 const imageUrl = file.thumbnailLink ? 
-                    file.thumbnailLink.replace("=s220", "=s500") : 
+                    file.thumbnailLink.replace("=s220", "=s400") : 
                     `https://drive.google.com/uc?export=view&id=${file.id}`;
                 
                 return `
@@ -1353,10 +1123,10 @@
                              alt="${file.name}" 
                              class="item-image"
                              loading="lazy"
-                             onerror="this.src='https://via.placeholder.com/500x400/FF6B35/ffffff?text=Premium+Food'">
+                             onerror="this.src='https://via.placeholder.com/400x300/FF6B35/ffffff?text=Food+Item'">
                         <div class="item-info">
                             <div class="item-name">${file.name}</div>
-                            <button onclick="openItem('${file.id}')" class="btn" style="padding: 12px 25px; font-size: 1rem;">
+                            <button onclick="openItem('${file.id}')" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">
                                 👁️ دیکھیں
                             </button>
                         </div>
@@ -1368,11 +1138,11 @@
         function updateSearchResults() {
             const resultsElement = document.getElementById('searchResults');
             if (files.length === 0) {
-                resultsElement.innerHTML = `<p style="color: #FF6B6B; font-size: 1.2rem;">"${currentSearchTerm}" کے لیے کوئی نتیجہ نہیں ملا</p>`;
+                resultsElement.innerHTML = `<p style="color: #d32f2f;">"${currentSearchTerm}" کے لیے کوئی نتیجہ نہیں ملا</p>`;
             } else if (currentSearchTerm === "") {
-                resultsElement.innerHTML = `<p style="color: #4CD964; font-size: 1.2rem;">کل ${files.length} آئٹمز</p>`;
+                resultsElement.innerHTML = `<p style="color: #388e3c;">کل ${files.length} آئٹمز</p>`;
             } else {
-                resultsElement.innerHTML = `<p style="color: #4CD964; font-size: 1.2rem;">"${currentSearchTerm}" کے لیے ${files.length} نتائج ملے</p>`;
+                resultsElement.innerHTML = `<p style="color: #388e3c;">"${currentSearchTerm}" کے لیے ${files.length} نتائج ملے</p>`;
             }
         }
 
@@ -1399,17 +1169,16 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = 'video-wrapper';
                 wrapper.style.width = '100%';
-                wrapper.style.maxWidth = '900px';
+                wrapper.style.maxWidth = '600px';
                 wrapper.style.margin = '0 auto';
                 
                 const iframe = document.createElement('iframe');
                 iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
                 iframe.allow = 'autoplay';
                 iframe.style.width = '100%';
-                iframe.style.height = '500px';
-                iframe.style.borderRadius = '15px';
+                iframe.style.height = '300px';
+                iframe.style.borderRadius = '12px';
                 iframe.style.border = 'none';
-                iframe.style.boxShadow = '0 20px 60px rgba(0,0,0,0.4)';
                 
                 wrapper.appendChild(iframe);
                 container.appendChild(wrapper);
@@ -1417,17 +1186,16 @@
             } else {
                 const img = document.createElement('img');
                 const highResUrl = file.thumbnailLink ? 
-                    file.thumbnailLink.replace("=s220", "=s1000") : 
+                    file.thumbnailLink.replace("=s220", "=s800") : 
                     `https://drive.google.com/uc?export=view&id=${file.id}`;
                 
                 img.src = highResUrl;
                 img.alt = file.name;
                 img.style.maxWidth = '100%';
-                img.style.maxHeight = '70vh';
-                img.style.borderRadius = '15px';
-                img.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)';
+                img.style.maxHeight = '50vh';
+                img.style.borderRadius = '12px';
+                img.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
                 img.loading = 'eager';
-                img.style.border = '2px solid rgba(255,107,53,0.3)';
                 
                 container.appendChild(img);
                 orderBtn.style.display = 'inline-block';
@@ -1477,7 +1245,7 @@
             
             let itemLink;
             if (file.thumbnailLink) {
-                itemLink = file.thumbnailLink.replace("=s220", "=s800");
+                itemLink = file.thumbnailLink.replace("=s220", "=s600");
             } else {
                 itemLink = `https://drive.google.com/uc?export=view&id=${file.id}`;
             }
@@ -1512,7 +1280,7 @@
         }
 
         function hideAllSections() {
-            document.querySelectorAll('.search-section, .gallery-view, #sliderSection, #loading, #orderForm').forEach(el => {
+            document.querySelectorAll('.search-section, .gallery-view, .slider-section, #loading, #orderForm').forEach(el => {
                 el.classList.add('d-none');
             });
         }
@@ -1548,14 +1316,8 @@
                 sendOrder();
             });
             
-            // کی بورڈ شارٹ کٹس
-            document.addEventListener('keydown', function(e) {
-                if (document.getElementById('sliderSection').classList.contains('d-none') === false) {
-                    if (e.key === 'ArrowLeft') prev();
-                    if (e.key === 'ArrowRight') next();
-                    if (e.key === 'Escape') goHome();
-                }
-            });
+            // موبائل فسٹ ٹچ ایونٹس
+            document.addEventListener('touchstart', function() {}, {passive: true});
             
             // اشتہارات لوڈ کریں
             setTimeout(() => {
@@ -1566,13 +1328,6 @@
             setInterval(() => {
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }, 30000);
-            
-            // لینڈنگ اینیمیشن
-            setTimeout(() => {
-                document.querySelectorAll('.nav-card').forEach((card, index) => {
-                    card.style.animationDelay = `${index * 0.1}s`;
-                });
-            }, 500);
         });
     </script>
 </body>

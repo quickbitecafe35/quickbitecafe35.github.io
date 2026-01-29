@@ -1,25 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-</script>
+    
+    <!-- PWA Service Worker -->
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+    </script>
+    
     <meta name="google-site-verification" content="u0HQvmeVKbyBWL1oaDDylFERp4bmJKpg-IT7i_U0CmE" />
-    <meta name="google-adsense-account" content="ca-pub-1417987183063486">
     <title>Quick Bite Cafe | تازہ فاسٹ فوڈ | 30 منٹ ڈیلیوری</title>
     <meta name="description" content="تازہ برگر، پیزا، چکن اور فاسٹ فوڈ 30 منٹ میں ڈیلیوری۔ بہترین معیار، بہترین قیمت۔">
     <meta name="keywords" content="Quick Bite Cafe, فاسٹ فوڈ, برگر, پیزا, ڈیلیوری, کراچی">
     <meta property="og:title" content="Quick Bite Cafe">
     <meta property="og:description" content="بہترین فاسٹ فوڈ - 30 منٹ ڈیلیوری گارنٹی">
     <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Be2aAkqVqA8grX0Vf4fIOoPrGzYbWig-">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#FF6B35">
-<link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="apple-touch-icon" href="icon-192.png">
     
     <!-- Cloudflare Turnstile CAPTCHA -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -835,38 +836,42 @@ if ("serviceWorker" in navigator) {
         .mobile-menu-toggle {
             display: none;
         }
+        
+        /* New Ad Styles */
+        .ad-banner {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            margin: 20px auto;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .ad-banner-large {
+            width: 100%;
+            max-width: 970px;
+            height: 250px;
+            margin: 25px auto;
+        }
+        
+        .ad-sidebar {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            margin: 15px auto;
+        }
+        
+        .ad-mobile {
+            width: 100%;
+            max-width: 320px;
+            height: 100px;
+            margin: 15px auto;
+        }
     </style>
-<script>
-  atOptions = {
-    'key' : '4ee61696b394cc57483c6cfdf19909e1',
-    'format' : 'iframe',
-    'height' : 300,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js"></script>
-<script>
-  atOptions = {
-    'key' : '4ee61696b394cc57483c6cfdf19909e1',
-    'format' : 'iframe',
-    'height' : 300,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js"></script>
-<script>
-  atOptions = {
-    'key' : '4ee61696b394cc57483c6cfdf19909e1',
-    'format' : 'iframe',
-    'height' : 300,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js"></script>
-
 </head>
 
 <body>
@@ -894,10 +899,10 @@ if ("serviceWorker" in navigator) {
             </div>
         </header>
 
+        <!-- ========== AD 1: HIGH PERFORMANCE FORMAT ========== -->
         <div class="ad-container">
             <div class="ad-label">Advertisement</div>
-            <!-- High Performance Format Ad -->
-            <div id="highperformance-ad"></div>
+            <div id="highperformance-ad1"></div>
         </div>
 
         <main id="home">
@@ -940,10 +945,10 @@ if ("serviceWorker" in navigator) {
                 </div>
             </div>
 
+            <!-- ========== AD 2: EFFECTIVE CPM AD ========== -->
             <div class="ad-container">
                 <div class="ad-label">Today's Special</div>
-                <!-- Effective CPM Ad -->
-                <div id="effective-cpm-ad"></div>
+                <div id="effective-cpm-ad1"></div>
             </div>
         </main>
 
@@ -962,6 +967,13 @@ if ("serviceWorker" in navigator) {
         <section id="galleryView" class="gallery-view d-none">
             <h2 class="text-center mb-30" id="galleryTitle"></h2>
             <div class="items-grid" id="itemsGrid"></div>
+            
+            <!-- ========== AD 3: IN GALLERY VIEW ========== -->
+            <div class="ad-container">
+                <div class="ad-label">Recommended</div>
+                <div id="highperformance-ad2"></div>
+            </div>
+            
             <div class="text-center mt-30">
                 <button onclick="goHome()" class="btn btn-secondary">
                     🏠 ہوم پیج پر واپس
@@ -1007,10 +1019,10 @@ if ("serviceWorker" in navigator) {
                      data-appearance="always"></div>
             </div>
             
+            <!-- ========== AD 4: IN SLIDER SECTION ========== -->
             <div class="ad-container">
-                <div class="ad-label">Recommended</div>
-                <!-- High Performance Format Ad 2 -->
-                <div id="highperformance-ad2"></div>
+                <div class="ad-label">Sponsored</div>
+                <div id="effective-cpm-ad2"></div>
             </div>
             
             <div class="text-center mt-30">
@@ -1070,9 +1082,9 @@ if ("serviceWorker" in navigator) {
             </form>
         </section>
 
+        <!-- ========== AD 5: BEFORE FOOTER ========== -->
         <div class="ad-container">
             <div class="ad-label">Special Offer</div>
-            <!-- High Performance Format Ad 3 -->
             <div id="highperformance-ad3"></div>
         </div>
 
@@ -1127,32 +1139,57 @@ if ("serviceWorker" in navigator) {
         let autoVerificationAttempts = 0;
         const MAX_AUTO_VERIFICATION_ATTEMPTS = 3;
 
-        // ایڈ لوڈنگ فنکشن
-        function loadAds() {
-            // High Performance Format Ads
-            try {
-                const ad1 = document.createElement('script');
-                ad1.src = 'https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js';
-                document.getElementById('highperformance-ad').appendChild(ad1);
-                
-                const ad2 = document.createElement('script');
-                ad2.src = 'https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js';
-                document.getElementById('highperformance-ad2').appendChild(ad2);
-                
-                const ad3 = document.createElement('script');
-                ad3.src = 'https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js';
-                document.getElementById('highperformance-ad3').appendChild(ad3);
-            } catch (e) {
-                console.log('Ad loading error:', e);
-            }
+        // Dynamic Ad Loading Functions
+        function loadAllAds() {
+            // Load High Performance Format Ads
+            loadHighPerformanceAd('highperformance-ad1');
+            loadHighPerformanceAd('highperformance-ad2');
+            loadHighPerformanceAd('highperformance-ad3');
             
-            // Effective CPM Ad
+            // Load Effective CPM Ads
+            loadEffectiveCPMAd('effective-cpm-ad1');
+            loadEffectiveCPMAd('effective-cpm-ad2');
+        }
+        
+        function loadHighPerformanceAd(elementId) {
             try {
+                const adContainer = document.getElementById(elementId);
+                if (!adContainer) return;
+                
+                const adScript = document.createElement('script');
+                adScript.innerHTML = `
+                    atOptions = {
+                        'key' : '4ee61696b394cc57483c6cfdf19909e1',
+                        'format' : 'iframe',
+                        'height' : 300,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                `;
+                adContainer.appendChild(adScript);
+                
+                const invokeScript = document.createElement('script');
+                invokeScript.src = 'https://www.highperformanceformat.com/4ee61696b394cc57483c6cfdf19909e1/invoke.js';
+                adContainer.appendChild(invokeScript);
+                
+                console.log(`High Performance Ad loaded in ${elementId}`);
+            } catch (e) {
+                console.log(`Error loading High Performance Ad in ${elementId}:`, e);
+            }
+        }
+        
+        function loadEffectiveCPMAd(elementId) {
+            try {
+                const adContainer = document.getElementById(elementId);
+                if (!adContainer) return;
+                
                 const effectiveAd = document.createElement('script');
                 effectiveAd.src = 'https://pl28597915.effectivegatecpm.com/1e/c1/41/1ec141187fc3bd4018e69cafa451e8a4.js';
-                document.getElementById('effective-cpm-ad').appendChild(effectiveAd);
+                adContainer.appendChild(effectiveAd);
+                
+                console.log(`Effective CPM Ad loaded in ${elementId}`);
             } catch (e) {
-                console.log('Effective CPM ad error:', e);
+                console.log(`Error loading Effective CPM Ad in ${elementId}:`, e);
             }
         }
 
@@ -1316,6 +1353,11 @@ if ("serviceWorker" in navigator) {
                     type === 'deals' ? '🎁 خصوصی ڈیلز' : '🎥 ویڈیوز';
                 renderGallery();
                 updateSearchResults();
+                
+                // Load ads for gallery view
+                setTimeout(() => {
+                    loadHighPerformanceAd('highperformance-ad2');
+                }, 500);
             });
         }
 
@@ -1331,6 +1373,11 @@ if ("serviceWorker" in navigator) {
                     type === 'items' ? '🍔 آئٹمز' : 
                     type === 'deals' ? '🎁 ڈیلز' : '🎥 ویڈیوز';
                 show();
+                
+                // Load ads for slider section
+                setTimeout(() => {
+                    loadEffectiveCPMAd('effective-cpm-ad2');
+                }, 500);
                 
                 // Reset and initialize auto CAPTCHA
                 resetCaptchaState();
@@ -1452,6 +1499,11 @@ if ("serviceWorker" in navigator) {
             showElement('sliderSection');
             document.getElementById('sliderTitle').textContent = file.name;
             show();
+            
+            // Load ads for slider section
+            setTimeout(() => {
+                loadEffectiveCPMAd('effective-cpm-ad2');
+            }, 500);
             
             // Reset and initialize auto CAPTCHA
             resetCaptchaState();
@@ -1647,8 +1699,8 @@ if ("serviceWorker" in navigator) {
                 showNotification('👋 Quick Bite Cafe میں خوش آمدید! 30 منٹ ڈیلیوری گارنٹی۔', 5000);
             }, 1000);
             
-            // ایڈز لوڈ کریں
-            setTimeout(loadAds, 2000);
+            // Load all ads initially
+            loadAllAds();
             
             // Search input event listener
             document.getElementById('searchInput').addEventListener('keypress', function(e) {
@@ -1677,7 +1729,5 @@ if ("serviceWorker" in navigator) {
             });
         });
     </script>
-<script src="https://pl28597915.effectivegatecpm.com/1e/c1/41/1ec141187fc3bd4018e69cafa451e8a4.js"></script>
-<script src="https://pl28597926.effectivegatecpm.com/19/ce/00/19ce00a9b81ac7a84f58732caa08ad6b.js"></script>
 </body>
 </html>

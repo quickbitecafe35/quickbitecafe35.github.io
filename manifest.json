@@ -1,13 +1,10 @@
 {
-  "name": "Quick Bite Cafe",
-  "short_name": "QuickBite",
-  "description": "Fresh Fast Food – 30 Minutes Delivery",
-  "start_url": "./",
-  "scope": "./",
+  "name": "Quick Bite Cafe | Fast Food",
+  "short_name": "Quick Bite",
+  "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#FF6B35",
+  "theme_color": "#FF4500",
   "icons": [
     {
       "src": "icon-192.png",

@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Quick Bite Cafe | Premium Delivery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Quick Bite Cafe | Best Fast Food | تازہ اور مزیدار کھانا</title>
+    <meta name="description" content="Quick Bite Cafe - شہر کا بہترین فاسٹ فوڈ۔ برگر، پیزا اور ڈیلز۔ ابھی آرڈر کریں! Order fresh burgers, pizza & fast food online.">
+    <meta name="keywords" content="Quick Bite Cafe, Burger, Pizza, Delivery, برگر, پیزا, فاسٹ فوڈ">
+    <meta name="author" content="Quick Bite Cafe">
+
+    <meta name="theme-color" content="#FF4500">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('PWA Registered!'))
+                    .catch(err => console.log('PWA Failed!', err));
+            });
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
     
     <style>
         :root {

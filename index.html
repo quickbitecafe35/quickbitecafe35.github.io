@@ -4,6 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  /**
+   * پروفیشنل آٹو اپڈیٹ سسٹم (2026)
+   * جب بھی آپ کوڈ بدلیں، بس نیچے والا ورژن نمبر بدل دیں
+   */
+  const CURRENT_VERSION = "v_4.0_premium"; 
+
+  async function updateSiteAssets() {
+    const savedVersion = localStorage.getItem('site_version');
+
+    // اگر ورژن مختلف ہے تو صفائی شروع کریں
+    if (savedVersion !== CURRENT_VERSION) {
+      console.log("New version detected! Updating...");
+
+      // 1. تمام کیشے ڈیلیٹ کریں (Most Important)
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        await Promise.all(
+          cacheNames.map(cacheName => caches.delete(cacheName))
+        );
+      }
+
+      // 2. سروس ورکر کو ان رجسٹر کریں
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (let registration of registrations) {
+          await registration.unregister();
+        }
+      }
+
+      // 3. نیا ورژن لوکل سٹوریج میں محفوظ کریں
+      localStorage.setItem('site_version', CURRENT_VERSION);
+
+      // 4. زبردستی ہارڈ ری لوڈ کریں (Cache Bypass)
+      // ری لوڈ کے ساتھ ہم ایک رینڈم نمبر بھی بھیجتے ہیں تاکہ سرور نیا ورژن ہی دے
+      window.location.href = window.location.origin + window.location.pathname + '?update=' + new Date().getTime();
+    }
+  }
+
+  // سکرپٹ رن کریں
+  updateSiteAssets();
+
+  // مین پیج کو لوڈ ہونے سے روکنے کے لیے ایک چھوٹا سا چیک
+  // تاکہ پرانی فائلز رینڈر نہ ہوں
+  window.addEventListener('load', () => {
+    console.log("Site is running on version: " + CURRENT_VERSION);
+  });
+</script>
     
     <title>Quick Bite Cafe | Best Fast Food | تازہ اور مزیدار کھانا</title>
     <meta name="description" content="Quick Bite Cafe - شہر کا بہترین فاسٹ فوڈ۔ برگر، پیزا اور ڈیلز۔ ابھی آرڈر کریں! Order fresh burgers, pizza & fast food online.">

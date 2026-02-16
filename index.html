@@ -1,66 +1,61 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
-<head>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  /**
-   * پروفیشنل آٹو اپڈیٹ سسٹم (2026)
-   * جب بھی آپ کوڈ بدلیں، بس نیچے والا ورژن نمبر بدل دیں
-   */
-  const CURRENT_VERSION = "v_4.0_premium"; 
+    <!-- AUTO-UPDATE SCRIPT – DO NOT CHANGE (Google verification & update logic) -->
+    <script>
+        /**
+         * Professional Auto-Update System (2026)
+         * Just change the version number below when you update files.
+         */
+        const CURRENT_VERSION = "v_4.0_premium"; 
 
-  async function updateSiteAssets() {
-    const savedVersion = localStorage.getItem('site_version');
+        async function updateSiteAssets() {
+            const savedVersion = localStorage.getItem('site_version');
 
-    // اگر ورژن مختلف ہے تو صفائی شروع کریں
-    if (savedVersion !== CURRENT_VERSION) {
-      console.log("New version detected! Updating...");
+            if (savedVersion !== CURRENT_VERSION) {
+                console.log("New version detected! Updating...");
 
-      // 1. تمام کیشے ڈیلیٹ کریں (Most Important)
-      if ('caches' in window) {
-        const cacheNames = await caches.keys();
-        await Promise.all(
-          cacheNames.map(cacheName => caches.delete(cacheName))
-        );
-      }
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(
+                        cacheNames.map(cacheName => caches.delete(cacheName))
+                    );
+                }
 
-      // 2. سروس ورکر کو ان رجسٹر کریں
-      if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          await registration.unregister();
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                    }
+                }
+
+                localStorage.setItem('site_version', CURRENT_VERSION);
+                window.location.href = window.location.origin + window.location.pathname + '?update=' + new Date().getTime();
+            }
         }
-      }
 
-      // 3. نیا ورژن لوکل سٹوریج میں محفوظ کریں
-      localStorage.setItem('site_version', CURRENT_VERSION);
+        updateSiteAssets();
 
-      // 4. زبردستی ہارڈ ری لوڈ کریں (Cache Bypass)
-      // ری لوڈ کے ساتھ ہم ایک رینڈم نمبر بھی بھیجتے ہیں تاکہ سرور نیا ورژن ہی دے
-      window.location.href = window.location.origin + window.location.pathname + '?update=' + new Date().getTime();
-    }
-  }
+        window.addEventListener('load', () => {
+            console.log("Site is running on version: " + CURRENT_VERSION);
+        });
+    </script>
 
-  // سکرپٹ رن کریں
-  updateSiteAssets();
-
-  // مین پیج کو لوڈ ہونے سے روکنے کے لیے ایک چھوٹا سا چیک
-  // تاکہ پرانی فائلز رینڈر نہ ہوں
-  window.addEventListener('load', () => {
-    console.log("Site is running on version: " + CURRENT_VERSION);
-  });
-</script>
-    
-    <title>Quick Bite Cafe | Best Fast Food | تازہ اور مزیدار کھانا</title>
-    <meta name="description" content="Quick Bite Cafe - شہر کا بہترین فاسٹ فوڈ۔ برگر، پیزا اور ڈیلز۔ ابھی آرڈر کریں! Order fresh burgers, pizza & fast food online.">
-    <meta name="keywords" content="Quick Bite Cafe, Burger, Pizza, Delivery, برگر, پیزا, فاسٹ فوڈ">
+    <title>Quick Bite Cafe | Order Online | Fresh Fast Food</title>
+    <meta name="description" content="Quick Bite Cafe - best burgers, pizza & deals. Order online for fast delivery. Fresh & tasty fast food.">
+    <meta name="keywords" content="Quick Bite Cafe, Burger, Pizza, Delivery, Online Order, Fast Food">
     <meta name="author" content="Quick Bite Cafe">
 
     <meta name="theme-color" content="#FF4500">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- Preconnect to Google domains for faster video loading -->
+    <link rel="preconnect" href="https://drive.google.com">
+    <link rel="preconnect" href="https://lh3.googleusercontent.com">
+    <link rel="preconnect" href="https://drive.usercontent.google.com">
 
     <script>
         if ('serviceWorker' in navigator) {
@@ -72,10 +67,8 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-    
     <style>
         :root {
             --primary: #FF4500; /* Deep Orange */
@@ -93,7 +86,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+            font-family: 'Poppins', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -120,6 +113,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
 
         .logo-img {
@@ -238,7 +232,7 @@
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: var(--shadow-3d); /* The 3D effect */
+            box-shadow: var(--shadow-3d);
             transition: all 0.1s;
             margin: 5px;
             display: inline-flex;
@@ -251,7 +245,7 @@
 
         .btn-3d:active {
             box-shadow: 0 0 0 var(--primary);
-            top: 5px; /* Push down effect */
+            top: 5px;
         }
 
         .btn-secondary {
@@ -369,6 +363,16 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+        /* Additional LTR adjustments */
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .status-item {
+            direction: ltr;
+        }
     </style>
 </head>
 <body>
@@ -382,16 +386,16 @@
             </div>
         </div>
         <div style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">
-            ● آن لائن
+            ● Online
         </div>
     </header>
 
     <div class="status-bar">
         <div class="status-content">
-            <span class="status-item">🕒 ٹائمنگ: 2:00 PM - 1:30 AM</span>
-            <span class="status-item">🚀 30 منٹ ایکسپریس ڈیلیوری</span>
-            <span class="status-item">🍕 تازہ ترین اور بہترین معیار</span>
-            <span class="status-item">🛵 فری ہوم ڈیلیوری (3KM)</span>
+            <span class="status-item">🕒 Timings: 2:00 PM - 1:30 AM</span>
+            <span class="status-item">🚀 30 min express delivery</span>
+            <span class="status-item">🍕 Fresh & best quality</span>
+            <span class="status-item">🛵 Free home delivery (3KM)</span>
         </div>
     </div>
 
@@ -400,62 +404,40 @@
         <div id="homeView" class="active">
             <div class="nav-grid">
                 
+                <!-- NEW ORDER CARD (replaces Menu & Special Deals) -->
                 <div class="card-3d">
-                    <div class="card-icon">🍔</div>
-                    <div class="card-title">ہمارا مینو</div>
-                    <div class="card-desc">برگر، پیزا، اور فاسٹ فوڈ کی مکمل رینج</div>
-                    
-                    <div>
-                        <button onclick="openGallery('items')" class="btn-3d btn-secondary">
-                            📱 سمارٹ لسٹ
-                        </button>
-                        <button onclick="openWithSearch('items')" class="btn-3d">
-                            🔍 سرچ کریں
-                        </button>
-                    </div>
+                    <div class="card-icon">🛒</div>
+                    <div class="card-title">Order Now</div>
+                    <div class="card-desc">Place your order quickly & easily</div>
+                    <a href="1.html" class="btn-3d" style="width:100%; justify-content:center; text-decoration:none;">🛒 Order Now</a>
                 </div>
 
-                <div class="card-3d">
-                    <div class="card-icon">🎁</div>
-                    <div class="card-title">اسپیشل ڈیلز</div>
-                    <div class="card-desc">کمبو پیکجز اور بچت آفرز</div>
-                    <div>
-                        <button onclick="openGallery('deals')" class="btn-3d btn-secondary">
-                            📱 سمارٹ لسٹ
-                        </button>
-                        <button onclick="openWithSearch('deals')" class="btn-3d">
-                            🔍 سرچ کریں
-                        </button>
-                    </div>
-                </div>
-
+                <!-- VIDEO CARD (unchanged functionality) -->
                 <div class="card-3d">
                     <div class="card-icon">🎥</div>
-                    <div class="card-title">ویڈیوز</div>
-                    <div class="card-desc">کوکنگ اور ریویوز دیکھیں</div>
-                    <button onclick="openGallery('videos')" class="btn-3d" style="width: 100%; justify-content: center;">
-                        🎬 ویڈیوز دیکھیں
-                    </button>
+                    <div class="card-title">Videos</div>
+                    <div class="card-desc">Watch cooking & reviews</div>
+                    <button onclick="openGallery('videos')" class="btn-3d" style="width: 100%; justify-content: center;">🎬 Watch Videos</button>
                 </div>
 
             </div>
         </div>
 
         <div id="searchView" class="modal-section">
-            <h2 class="text-center mb-20">🔍 آئٹم تلاش کریں</h2>
-            <input type="text" id="searchInput" class="form-input" placeholder="یہاں لکھیں (مثلاً: پیزا)...">
+            <h2 class="text-center mb-20">🔍 Search Items</h2>
+            <input type="text" id="searchInput" class="form-input" placeholder="Type here (e.g. pizza)...">
             <div id="searchResults" class="items-grid"></div>
             <div class="text-center mt-20">
-                <button onclick="goHome()" class="btn-3d btn-secondary">🏠 واپس جائیں</button>
+                <button onclick="goHome()" class="btn-3d btn-secondary">🏠 Go Back</button>
             </div>
         </div>
 
         <div id="galleryView" class="modal-section">
-            <h2 id="galleryTitle" class="text-center mb-20">آئٹمز</h2>
+            <h2 id="galleryTitle" class="text-center mb-20">Items</h2>
             <div id="loading" class="loader d-none"></div>
             <div id="itemsGrid" class="items-grid"></div>
             <div class="text-center" style="margin-top: 30px;">
-                <button onclick="goHome()" class="btn-3d btn-secondary">🏠 واپس جائیں</button>
+                <button onclick="goHome()" class="btn-3d btn-secondary">🏠 Go Back</button>
             </div>
         </div>
 
@@ -471,40 +453,42 @@
                     <button onclick="nextItem()" class="btn-3d btn-secondary">▶</button>
                 </div>
 
-                <button id="orderStartBtn" onclick="showOrderForm()" class="btn-3d" style="width: 100%; justify-content: center;">
-                    🛒 ابھی آرڈر کریں
+                <!-- Order button permanently hidden (orders go through 1.html) -->
+                <button id="orderStartBtn" onclick="showOrderForm()" class="btn-3d" style="width: 100%; justify-content: center; display: none;">
+                    🛒 Order Now
                 </button>
             </div>
             
             <div class="text-center mt-20">
-                <button onclick="backToGallery()" class="btn-3d btn-secondary">🔙 لسٹ میں واپس</button>
+                <button onclick="backToGallery()" class="btn-3d btn-secondary">🔙 Back to List</button>
             </div>
         </div>
 
-        <div id="orderFormView" class="modal-section">
+        <!-- Order form section permanently hidden (orders go through 1.html) -->
+        <div id="orderFormView" class="modal-section" style="display: none !important;">
             <div class="preview-box" style="border-top: 5px solid var(--primary);">
-                <h2 class="text-center mb-20">📝 آرڈر فارم</h2>
+                <h2 class="text-center mb-20">📝 Order Form</h2>
                 <form id="orderForm" onsubmit="sendOrder(event)">
-                    <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">آپ کا نام</label>
+                    <label>Your Name</label>
                     <input type="text" id="name" class="form-input" required>
                     
-                    <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">موبائل نمبر (WhatsApp)</label>
+                    <label>Mobile Number (WhatsApp)</label>
                     <input type="tel" id="phone" class="form-input" placeholder="03XX-XXXXXXX" required>
                     
-                    <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">مکمل پتہ</label>
+                    <label>Complete Address</label>
                     <textarea id="address" class="form-input" rows="3" required></textarea>
                     
                     <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 20px; color: #2e7d32; font-size: 0.9rem;">
-                        ✅ محفوظ چیک آؤٹ: 30 منٹ ڈیلیوری گارنٹی
+                        ✅ Secure Checkout: 30 min delivery guarantee
                     </div>
 
                     <button type="submit" class="btn-3d" style="background: #25D366; width: 100%; justify-content: center; box-shadow: 0 5px 0 #128C7E;">
-                        WhatsApp پر آرڈر کریں 🚀
+                        Order via WhatsApp 🚀
                     </button>
                 </form>
             </div>
             <div class="text-center mt-20">
-                <button onclick="hideOrderForm()" class="btn-3d btn-secondary">❌ کینسل</button>
+                <button onclick="hideOrderForm()" class="btn-3d btn-secondary">❌ Cancel</button>
             </div>
         </div>
 
@@ -516,6 +500,7 @@
     </footer>
 
     <script>
+        // Google Drive API key and folder IDs (unchanged)
         const API_KEY = "AIzaSyDVs_kb42MHgUPwCsf4JXSUXyeqNLbbQns";
         const folders = {
             items: "1MitrYYijfqm9vtOkRh5G--YK2UyYg80c",
@@ -567,7 +552,7 @@
                 document.getElementById('loading').classList.add('d-none');
                 return true;
             } catch (e) {
-                alert('نیٹ ورک ایرر: براہ کرم انٹرنیٹ چیک کریں');
+                alert('Network error: Please check your internet');
                 return false;
             }
         }
@@ -575,7 +560,8 @@
         // --- GALLERIES ---
         async function openGallery(type) {
             showSection('galleryView');
-            document.getElementById('galleryTitle').innerText = type === 'items' ? '🍔 مینو لسٹ' : type === 'deals' ? '🎁 ڈیلز' : '🎥 ویڈیوز';
+            let title = type === 'items' ? '🍔 Menu Items' : type === 'deals' ? '🎁 Deals' : '🎥 Videos';
+            document.getElementById('galleryTitle').innerText = title;
             document.getElementById('itemsGrid').innerHTML = '';
             
             await fetchData(type);
@@ -591,15 +577,12 @@
 
         // --- RENDER GRID ---
         function renderGrid(files) {
-            const container = document.getElementById(state.currentType === 'items' || state.currentType === 'deals' ? 'itemsGrid' : 'itemsGrid'); // Reusing same grid
-            // If search view is active, use search results container
             const activeContainer = document.getElementById('searchView').style.display === 'block' ? document.getElementById('searchResults') : document.getElementById('itemsGrid');
             
             activeContainer.innerHTML = files.map((file, index) => {
                 const imgUrl = file.thumbnailLink ? file.thumbnailLink.replace('=s220', '=s400') : 'https://via.placeholder.com/300';
                 const isVideo = file.mimeType.includes('video');
                 
-                // For search results, we need to find the original index in the main array to open correct item
                 const originalIndex = state.allFiles.findIndex(f => f.id === file.id);
 
                 return `
@@ -614,7 +597,7 @@
                 </div>`;
             }).join('');
 
-            if(files.length === 0) activeContainer.innerHTML = '<p class="text-center w-100">کوئی آئٹم نہیں ملا</p>';
+            if(files.length === 0) activeContainer.innerHTML = '<p class="text-center w-100">No items found</p>';
         }
 
         // --- SEARCH LOGIC ---
@@ -643,7 +626,7 @@
             } else {
                 const highRes = file.thumbnailLink ? file.thumbnailLink.replace('=s220', '=s1000') : '';
                 container.innerHTML = `<img src="${highRes}" style="width:100%; max-height:400px; object-fit:contain; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">`;
-                orderBtn.style.display = 'flex';
+                orderBtn.style.display = 'none'; // Always hidden now
             }
         }
 
@@ -665,7 +648,7 @@
             }
         }
 
-        // --- ORDER LOGIC ---
+        // --- ORDER LOGIC (kept but never called because buttons are hidden) ---
         function showOrderForm() {
             document.getElementById('detailView').style.display = 'none';
             showSection('orderFormView');

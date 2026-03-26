@@ -385,7 +385,7 @@
                 <span>Cafe & Fast Food</span>
             </div>
         </div>
-        <div style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">
+        <div id="onlineStatus" style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">
             ● Online
         </div>
     </header>
@@ -677,6 +677,35 @@
             window.open(`https://wa.me/923159392716?text=${msg}`, '_blank');
         }
 
+    </script>
+
+    <script>
+        // --- ONLINE / OFFLINE TIMING LOGIC ---
+        // Schedule: 2:00 PM (14:00) to 1:30 AM (01:30) — spans midnight
+        function checkOnlineStatus() {
+            const now = new Date();
+            const h = now.getHours();
+            const m = now.getMinutes();
+            const totalMins = h * 60 + m;
+
+            const openMins  = 14 * 60;       // 2:00 PM  = 840 min
+            const closeMins =  1 * 60 + 30;  // 1:30 AM  =  90 min
+
+            // Online if: after 2:00 PM  OR  before/at 1:30 AM
+            const isOnline = (totalMins >= openMins) || (totalMins < closeMins);
+
+            const statusEl = document.getElementById('onlineStatus');
+            if (isOnline) {
+                statusEl.style.color = 'var(--accent)';
+                statusEl.textContent = '● Online';
+            } else {
+                statusEl.style.color = '#e53935';
+                statusEl.textContent = '● Offline';
+            }
+        }
+
+        checkOnlineStatus();
+        setInterval(checkOnlineStatus, 60000); // re-check every minute
     </script>
 </body>
 </html>
